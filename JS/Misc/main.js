@@ -1,11 +1,11 @@
 function table(x,y){
     
-    for(let i = 0; i<y; y++){
-        console.log(x + " x " + y + " = " + x*y);
+    for(let i = 0; i<=y; i++){
+        console.log(x + " x " + i + " = " + x*i);
     };
 };
 
-table(5,10);
+table(5,20);
 
 
 
