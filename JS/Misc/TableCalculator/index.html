@@ -4,30 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Include the JavaScript file -->
     <script defer src="main.js"></script>
+    <!-- Include the CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Main container for the page content -->
     <section class="container">
         <header>
+            <!-- Page header with the title -->
             <h1 id="header">
                 Table Calculator
             </h1>
         </header>
         
         <div id="input">
+            <!-- Input section with form elements for the user -->
             <h2>
                 Table of?
+                <!-- Input field for the base number -->
                 <input type="number" id="first" min="0">
                 Till?
+                <!-- Input field for the range -->
                 <input type="number" id="sec" min="0">
+                <br>
+                <!-- Display error message -->
+                <span id="error"></span>
             </h2>
+
+            <!-- Button to trigger the calculation -->
+            <button id="btn">Calculate</button>
 
             <h3>
                 Output
             </h3>
 
-            <button>Calculate</button>
+            <!-- Display the output of the calculation -->
+            <p id="output"></p>
+
         </div>
         
     </section>
