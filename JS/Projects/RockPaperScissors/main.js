@@ -39,7 +39,7 @@ rock.addEventListener('click', function(){
         
         document.getElementById('player').innerHTML = 'Rock';
         document.getElementById('comp').innerHTML = computer;
-        console.log(resultr);
+        
 
     
 });
@@ -58,7 +58,7 @@ paper.addEventListener('click', function(){
 
         document.getElementById('player').innerHTML = 'Paper';
         document.getElementById('comp').innerHTML = computer;
-        console.log(resultp);
+
     
 });
 
@@ -76,7 +76,7 @@ scissors.addEventListener('click', function(){
 
         document.getElementById('player').innerHTML = 'Scissors';
         document.getElementById('comp').innerHTML = computer;
-        console.log(results);
+      
     
 });
 
@@ -99,7 +99,7 @@ button.addEventListener('click', function(){
     
         document.getElementById('player').innerHTML = p1;
         document.getElementById('comp').innerHTML = computer;
-        console.log(result);
+      
 
 });
 
