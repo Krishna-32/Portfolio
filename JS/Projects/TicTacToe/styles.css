@@ -1,0 +1,136 @@
+*{
+    background-color:black;
+    font-family: myFont;
+}
+
+@font-face {
+    font-family: myFont;
+    src: url(Font/Fatmarker-4LO4.ttf);
+}
+
+body{
+    overflow: hidden;
+}
+
+:root{
+    --color: #dfdfdf;
+    --background-color: #dfdfdf;
+    --background-image: linear-gradient(90deg, #ff00d2 , #fed90f, #00a2ff , #09f1b8);
+    --webkit-text-stroke-color: transparent;
+    --webkit-text-stroke-width: calc(1em / 16);
+    --webkit-background-clip: text;
+    
+}
+
+header{
+    text-align: center;
+    color: var(--color);
+    font-size: 4rem;
+    margin-top: -3rem;
+}
+
+h1::before{
+    content: 'X';
+    color: var(--color);
+    background-image: var(--background-image);
+    background-clip: text;
+    -webkit-text-stroke-color: var(--webkit-text-stroke-color);
+    -webkit-text-stroke-width: var(--webkit-text-stroke-width);
+    -webkit-background-clip: var(--webkit-background-clip);
+    color: #000119;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    position: relative;
+    bottom: 0.5rem;
+    padding: 1rem;
+}
+
+h1::after{
+    content: 'O';
+    color: var(--color);
+    background-image: var(--background-image);
+    background-clip: text;
+    -webkit-text-stroke-color: var(--webkit-text-stroke-color);
+    -webkit-text-stroke-width: var(--webkit-text-stroke-width);
+    -webkit-background-clip: var(--webkit-background-clip);
+    color: #000119;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-left: 1rem;
+    position: relative;
+    bottom: 0.5rem;
+    padding: 1rem;
+}
+
+.container{
+    height: 20rem;
+    width: 20rem;
+    display: grid;
+    position: relative;
+    inset: 50%;
+    translate: -50% 10%;
+    grid-template-columns: repeat(3, auto);
+    cursor: pointer;
+}
+
+.container div{
+    border: 2px solid white;
+    width: 7rem;
+    height: 7rem;  
+    text-align: center;
+    color: #dfdfdf;
+    font-size: 7rem;
+}
+
+.container :first-child,
+.container :nth-child(2),
+.container :nth-child(3){
+    border-top: none;
+}
+
+.container :first-child,
+.container :nth-child(4),
+.container :nth-child(7){
+    border-left: none;
+}
+
+.container :nth-child(3),
+.container :nth-child(6),
+.container :nth-child(9){
+    border-right: none;
+}
+
+.container :nth-child(7),
+.container :nth-child(8),
+.container :nth-child(9){
+    border-bottom: none;
+}
+
+button.restart{
+    background-color:#646363 ;
+    font-size: 1.3rem;
+    position: relative;
+    inset: 50%;
+    translate: -35% 500%;
+    font-weight: 550;
+}
+
+.scoreboard{
+    color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    text-transform: uppercase;
+    text-align: start;
+    position: absolute;
+    inset: 0;
+    translate: 20% 35%;
+}
+
+button.scorereset{
+    background-color: #646363;
+    font-weight: 600;
+    font-size: 1rem;
+}
+

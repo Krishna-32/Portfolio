@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>TicTacToe</h1>
+    </header>
+
+    <div class="container" id="container">
+        <div class="cellIndex" grid="0"></div>
+        <div class="cellIndex" grid="1"></div>
+        <div class="cellIndex" grid="2"></div>
+        <div class="cellIndex" grid="3"></div>
+        <div class="cellIndex" grid="4"></div>
+        <div class="cellIndex" grid="5"></div>
+        <div class="cellIndex" grid="6"></div>
+        <div class="cellIndex" grid="7"></div>
+        <div class="cellIndex" grid="8"></div>
+    </div>
+
+    <button class="restart">Restart</button>
+
+    <div class="scoreboard">
+        <h2>scoreboard</h2>
+
+        <div class="playerone" id="playerone">
+            <h3 id="p1">X : <span id="1"></span></h3>
+        </div>
+
+        <div class="playertwo" id="playertwo">
+            <h3 id="p2">O : <span id="2"></span></h3>
+        </div>
+
+        <button class="scorereset" id="scorereset">Reset</button>
+    </div>
+
+    <div id="status"></div>
+
+    <div class="result" id="result"></div>
+</body>
+</html>

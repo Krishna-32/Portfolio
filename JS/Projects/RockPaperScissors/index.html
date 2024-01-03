@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and viewport settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Title of the webpage -->
     <title>Rock Papers Scissors</title>
+
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Link to external JavaScript file with 'defer' attribute for asynchronous loading -->
     <script defer src="main.js"></script>
 </head>
 <body>
+    <!-- Main container section -->
     <section class="container">
 
+        <!-- Header section with the title -->
         <header id="head">
             Rock Paper Scissors
         </header>
 
+        <!-- Main content article section -->
         <article>
+            <!-- Unordered list for game options (Rock, Paper, Scissors) -->
             <ul>
+                <!-- List item for Rock with image and text -->
                 <li><img src="Images/Screenshot (204).jpg" alt="Rock" id="rock"><p id="R">Rock</p></li>
+
+                <!-- List item for Paper with image and text -->
                 <li><img src="Images/Screenshot (206).jpg" alt="Paper" id="paper"><p id="R">Paper</p></li>
+
+                <!-- List item for Scissors with image and text -->
                 <li><img src="Images/Screenshot (205).jpg" alt="Scissors" id="scissors"><p id="R">Scissors</p></li>
             </ul>
         </article>
 
+        <!-- Aside section for additional information -->
         <aside>
+            <!-- Header for highest win streak with a span for dynamic content -->
             <h1 id="high">Highest Win Streak : <span id="hs">0</span> </h1>
+
+            <!-- Header for current win streak with a span for dynamic content -->
             <h1 id="current">Current Win Streak : <span id="cs">0</span> </h1>
         </aside>
 
+        <!-- Div for text information -->
         <div class="text">
+            <!-- Paragraph for player's choice with a span for dynamic content -->
+            <p id="p1">
+                You Choose : <span id="player"></span>
+            </p>
 
-        <p id="p1">
-            You Choose : <span id="player"></span>
-        </p>
+            <!-- Paragraph for computer's choice with a span for dynamic content -->
+            <p id="Computer">
+                Computer Choose : <span id="comp"></span>
+            </p>
 
-        <p id="Computer">
-            Computer Choose : <span id="comp"></span>
-        </p>
-
-        <p id="result">
-                
-        </p>
-
-       </div>
+            <!-- Paragraph for game result -->
+            <p id="result">
+            </p>
+        </div>
         
+        <!-- Button for triggering a random choice -->
         <button id="btn">
             Random
         </button>
