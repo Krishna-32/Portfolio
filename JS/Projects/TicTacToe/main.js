@@ -71,11 +71,14 @@ function cellClicked() {
             console.log(cellIndex);
 
             options[cellIndex] = currentPlayer;
-            cells.innerHTML = options[cellIndex];
+            console.log(options);
 
             if(!running){
                 return;
             }
+
+            cells[cellIndex].innerHTML = `${currentPlayer}`;
+
             // if(currentPlayer === 'X'){
             //     cellValue[cellIndex]=1;
             //     console.log(cellValue);
@@ -139,6 +142,9 @@ function restartGame(){
         running = true;
         turn.innerHTML = `X's Turn`;
         result.innerHTML = ``;
+        cells.forEach(cell => {
+            cell.innerHTML = '';
+        });
     })
 }
 
@@ -162,6 +168,7 @@ function resetScore(){
         
     })
 }
+
 
 resetScore()
 cellClicked();
