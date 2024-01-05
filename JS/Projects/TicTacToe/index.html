@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the page -->
     <title>TicTacToe</title>
+    
+    <!-- Link to an external stylesheet for styling -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Script tag to include the main JavaScript file with defer attribute for asynchronous loading -->
     <script defer src="main.js"></script>
 </head>
 <body>
+    <!-- Page header -->
     <header>
         <h1>TicTacToe</h1>
     </header>
 
+    <!-- Game board container with individual cells -->
     <div class="container" id="container">
         <div class="cellIndex" grid="0"></div>
         <div class="cellIndex" grid="1"></div>
@@ -24,24 +33,31 @@
         <div class="cellIndex" grid="8"></div>
     </div>
 
+    <!-- Button to restart the game -->
     <button id="restart">Restart</button>
 
+    <!-- Scoreboard section -->
     <div class="scoreboard">
         <h2>scoreboard</h2>
-
+        
+        <!-- Player One's score display -->
         <div class="playerone" id="playerone">
             <h3 id="p1">X : <span id="1">0</span></h3>
         </div>
 
+        <!-- Player Two's score display -->
         <div class="playertwo" id="playertwo">
             <h3 id="p2">O : <span id="2">0</span></h3>
         </div>
 
+        <!-- Button to reset the scoreboard -->
         <button class="scorereset" id="scorereset">Reset</button>
     </div>
 
+    <!-- Display current player's turn -->
     <div id="status">X's Turn</div>
 
+    <!-- Display game result -->
     <div class="result" id="result"></div>
 </body>
 </html>

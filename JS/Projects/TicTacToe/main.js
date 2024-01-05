@@ -1,3 +1,4 @@
+// Selecting DOM elements
 const cells = document.querySelectorAll(".cellIndex");
 const status = document.querySelector("#status");
 const result = document.querySelector("#result");
@@ -6,8 +7,12 @@ const reset = document.getElementById('scorereset');
 const turn = document.getElementById('status');
 const x = document.getElementById('1');
 const y = document.getElementById('2');
+
+// Initializing scores
 let sum1 = 0;
 let sum2 = 0;
+
+// Winning conditions for the TicTacToe game
 const winCondition = [
     [0,1,2],
     [3,4,5],
@@ -17,53 +22,16 @@ const winCondition = [
     [2,5,8],
     [0,4,8],
     [2,4,6]
-
-    // [
-    //     1,1,1,
-    //     0,0,0,
-    //     0,0,0
-    // ],
-    // [
-    //     0,0,0,
-    //     1,1,1,
-    //     0,0,0
-    // ],
-    // [
-    //     0,0,0,
-    //     0,0,0,
-    //     1,1,1
-    // ],
-    // [
-    //     1,0,0,
-    //     1,0,0,
-    //     1,0,0
-    // ],
-    // [
-    //     0,1,0,
-    //     0,1,0,
-    //     0,1,0
-    // ],
-    // [
-    //     0,0,1,
-    //     0,0,1,
-    //     0,0,1
-    // ],
-    // [
-    //     1,0,0,
-    //     0,1,0,
-    //     0,0,1
-    // ],
-    // [
-    //     0,0,1,
-    //     0,1,0,
-    //     1,0,0
-    // ],
 ];
-// const cellValue = [0,0,0,0,0,0,0,0,0];
+
+// Array to store the state of each cell
 let options = ["", "", "", "", "", "", "", "", ""];
+
+// Initial player and game state
 let currentPlayer = 'X';
 let running = true;
 
+// Event listener for cell clicks
 function cellClicked() {
     cells.forEach(cell => {
         cell.addEventListener('click', function() {
@@ -78,20 +46,14 @@ function cellClicked() {
             }
 
             cells[cellIndex].innerHTML = `${currentPlayer}`;
-
-            // if(currentPlayer === 'X'){
-            //     cellValue[cellIndex]=1;
-            //     console.log(cellValue);
-            // }        
             checkWinner();
             switchPlayer();
-            restartGame();
-            
-            
+            restartGame();   
         });
     });
 }
 
+// Switching player turns
 function switchPlayer(){
     if(running){
         switch(currentPlayer){
@@ -108,8 +70,9 @@ function switchPlayer(){
     }
 }
 
+// Checking for a winner or a draw
 function checkWinner() {
-    for(let i = 0; i<=7; i++){
+    for(let i = 0; i <= 7; i++){
         const condition = winCondition[i];
         let a = options[condition[0]];
         let b = options[condition[1]];
@@ -135,6 +98,7 @@ function checkWinner() {
     }
 }
 
+// Restarting the game
 function restartGame(){
     restart.addEventListener('click', function(){
         options = ["", "", "", "", "", "", "", "", ""];
@@ -148,6 +112,7 @@ function restartGame(){
     })
 }
 
+// Updating the scoreboard
 function scoreBoard(score){
     if(score == 'X'){
         sum1++;
@@ -159,16 +124,16 @@ function scoreBoard(score){
     }
 }
 
+// Resetting the scoreboard
 function resetScore(){
     reset.addEventListener('click', function(){
         sum1 = 0;
         sum2 = 0;
         x.innerHTML = sum1;
         y.innerHTML = sum2;
-        
     })
 }
 
-
+// Initializing the game and scoreboard
 resetScore()
 cellClicked();

@@ -1,34 +1,39 @@
-*{
-    background-color:black;
+/* Apply a background color and font family to all elements */
+* {
+    background-color: black;
     font-family: myFont;
 }
 
+/* Define a custom font using @font-face */
 @font-face {
     font-family: myFont;
     src: url(Font/Fatmarker-4LO4.ttf);
 }
 
-body{
+/* Hide vertical scrollbar in the body */
+body {
     overflow: hidden;
 }
 
-:root{
-    --color: #dfdfdf;
-    --background-color: #dfdfdf;
-    --background-image: linear-gradient(90deg, #ff00d2 , #fed90f, #00a2ff , #09f1b8);
-    --webkit-text-stroke-color: transparent;
-    --webkit-text-stroke-width: calc(1em / 16);
-    --webkit-background-clip: text;
-    
+/* Root-level variables for color and background settings */
+:root {
+    --color: #dfdfdf; /* Text color */
+    --background-color: #dfdfdf; /* Background color */
+    --background-image: linear-gradient(90deg, #ff00d2, #fed90f, #00a2ff, #09f1b8); /* Background gradient */
+    --webkit-text-stroke-color: transparent; /* Text stroke color for webkit browsers */
+    --webkit-text-stroke-width: calc(1em / 16); /* Text stroke width for webkit browsers */
+    --webkit-background-clip: text; /* Background clip for webkit browsers */
 }
 
-header{
+/* Header styling */
+header {
     text-align: center;
     color: var(--color);
     font-size: 4rem;
     margin-top: -3rem;
 }
 
+/* Style 'X' and 'O' in the header using pseudo-elements */
 h1::before{
     content: 'X';
     color: var(--color);
@@ -63,7 +68,8 @@ h1::after{
     padding: 1rem;
 }
 
-.container{
+/* Game board container styling */
+.container {
     height: 20rem;
     width: 20rem;
     display: grid;
@@ -74,7 +80,8 @@ h1::after{
     cursor: pointer;
 }
 
-.container div{
+/* Individual cell styling in the game board */
+.container div {
     border: 2px solid white;
     width: 7rem;
     height: 7rem;  
@@ -83,32 +90,34 @@ h1::after{
     font-size: 7rem;
 }
 
+/* Additional styling for specific cells in the game board */
 .container :first-child,
 .container :nth-child(2),
-.container :nth-child(3){
+.container :nth-child(3) {
     border-top: none;
 }
 
 .container :first-child,
 .container :nth-child(4),
-.container :nth-child(7){
+.container :nth-child(7) {
     border-left: none;
 }
 
 .container :nth-child(3),
 .container :nth-child(6),
-.container :nth-child(9){
+.container :nth-child(9) {
     border-right: none;
 }
 
 .container :nth-child(7),
 .container :nth-child(8),
-.container :nth-child(9){
+.container :nth-child(9) {
     border-bottom: none;
 }
 
-button#restart{
-    background-color:#646363 ;
+/* Button styling for game restart */
+button#restart {
+    background-color: #646363;
     font-size: 1.3rem;
     position: relative;
     inset: 50%;
@@ -116,7 +125,8 @@ button#restart{
     font-weight: 550;
 }
 
-.scoreboard{
+/* Scoreboard styling */
+.scoreboard {
     color: darkgrey;
     display: flex;
     flex-direction: column;
@@ -128,13 +138,15 @@ button#restart{
     translate: 20% 35%;
 }
 
-button.scorereset{
+/* Button styling for resetting the scoreboard */
+button.scorereset {
     background-color: #646363;
     font-weight: 600;
     font-size: 1rem;
 }
 
-#status{
+/* Display current player's turn */
+#status {
     font-size: 5rem;
     color: #dfdfdf;
     position: relative;
@@ -145,7 +157,8 @@ button.scorereset{
     text-align: center;
 }
 
-.result{
+/* Display game result */
+.result {
     color: #dfdfdf;
     font-size: 3rem;
     position: absolute;
@@ -154,5 +167,4 @@ button.scorereset{
     height: auto;
     left: 19rem;
     bottom: 23.5rem;
-
 }
