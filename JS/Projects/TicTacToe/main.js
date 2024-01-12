@@ -38,14 +38,22 @@ function cellClicked() {
             const cellIndex = this.getAttribute('grid');
             console.log(cellIndex);
 
+            if (options[cellIndex] !== "") {
+                // Cell already occupied, do nothing
+                return;
+            }
+
             options[cellIndex] = currentPlayer;
             console.log(options);
 
             if(!running){
                 return;
             }
+            
 
             cells[cellIndex].innerHTML = `${currentPlayer}`;
+
+
             checkWinner();
             switchPlayer();
             restartGame();   
@@ -59,6 +67,7 @@ function switchPlayer(){
         switch(currentPlayer){
             case 'X':
                 currentPlayer = 'O';
+                computerPlay(); 
                 break;
             default :
                 currentPlayer = 'X';
@@ -72,6 +81,7 @@ function switchPlayer(){
 
 // Checking for a winner or a draw
 function checkWinner() {
+    let gameDraw = !options.includes("");
     for(let i = 0; i <= 7; i++){
         const condition = winCondition[i];
         let a = options[condition[0]];
@@ -88,14 +98,13 @@ function checkWinner() {
             running = false;
             result.innerHTML = `${currentPlayer} Wins!!!`;
             scoreBoard(currentPlayer);
-            break;
+            return;
         }   
-        if(!options.includes("")){
-            running = false;
-            result.innerHTML = "Draw!!!";
-            break;
-        }        
     }
+    if(gameDraw){
+        running = false;
+        result.innerHTML = "Draw!!!";
+    }        
 }
 
 // Restarting the game
@@ -132,6 +141,27 @@ function resetScore(){
         x.innerHTML = sum1;
         y.innerHTML = sum2;
     })
+}
+
+// Computer makes a move
+function computerPlay() {
+    let availableCells = [];
+    for(let i = 0; i < options.length; i++) {
+        if(options[i] === '') { // If the cell is empty
+            availableCells.push(i); // Add the index to the list of available cells
+        }
+    }
+
+    if(availableCells.length > 0) {
+        let randomIndex = Math.floor(Math.random() * availableCells.length); // Select a random index
+        let cellIndex = availableCells[randomIndex]; // Get the cell index from the available cells
+
+        options[cellIndex] = currentPlayer; // Place an 'O'
+        cells[cellIndex].innerHTML = `${currentPlayer}`; // Update the cell on the board
+
+        checkWinner();
+        switchPlayer();
+    }
 }
 
 // Initializing the game and scoreboard
