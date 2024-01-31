@@ -1,4 +1,16 @@
+body{
+    overflow: hidden;
+}
+
 .Home{
     width: fit-content;
-    background-color: aqua;
+    background: rgb(37,37,37);
+    background: linear-gradient(90deg, rgba(37,37,37,1) 0%, rgba(71,79,89,1) 100%);
+}
+
+.Home img{
+    width: 90%;
+    height: auto;
+    translate: 5% 30%;
+    filter: drop-shadow(0px 25px 3px black);
 }
