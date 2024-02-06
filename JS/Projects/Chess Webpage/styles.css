@@ -1,5 +1,7 @@
 body{
+    height: 100%;
     background-color: #f5f5f5;
+    overflow-x: hidden
 }
 
 /* HOME */
@@ -48,15 +50,121 @@ body{
 .home button{
     color: #f5f5f5;
     background-color: #de2626;
-    filter: drop-shadow(0px 0px 5px black);
     cursor: pointer;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.500));
     width: 17rem;
     height: 4rem;
     display: block;
     margin: auto;
     position: relative;
     top: 5rem;
-    font-size: 1.9rem;    
+    font-size: 1.9rem; 
+    border: none;   
+}
+
+.home .maintxt, .home .button,.home .img{
+    position: relative;
+    top: -150rem;
+}
+
+.home p.v1{
+    width: 1.5px;
+    height: 200px;
+    background-color: #f5f5f5;
+    rotate: 90deg;
+    position: relative;
+    bottom: 58rem;
+    left: 13rem;
+}
+
+.home p.h1{
+    width: 1.5px;
+    height: 500px;
+    background-color: #f5f5f5;
+    position: relative;
+    left: 6.8rem;
+    bottom: 65.3rem;
+}
+
+.home p.v2{
+    width: 1.5px;
+    height: 200px;
+    background-color: #f5f5f5;
+    rotate: 90deg;
+    margin-left: auto;
+    position: relative;
+    right: 14rem;
+    bottom: 103.8rem;
+}
+
+
+.home p.h2{
+    width: 1.5px;
+    height: 500px;
+    background-color: #f5f5f5;
+    margin-left: auto;
+    position: relative;
+    right: 7.8rem;
+    bottom: 111rem;
+}
+
+.home .gg-home{
+    color: #f5f5f5;
+    position: relative;
+    top: 2.8rem;
+    left: -1rem;
+    color: #de2626;
+    cursor: pointer;
+}
+
+.home .gg-home:not(:hover){
+    color: #f5f5f5;
+}
+
+.home .gg-profile{
+    color: #f5f5f5;
+    position: relative;
+    top: 2.175rem;
+    left: -1rem;
+    zoom: 1.1;
+    color: #de2626;
+    cursor: pointer;
+}
+
+.home .gg-profile:not(:hover){
+    color: #f5f5f5;
+}
+
+.home p.v11{
+    width: 1.5px;
+    height: 520px;
+    background-color: #f5f5f5;
+    rotate: 90deg;
+    position: relative;
+    top: -17.8rem;
+    left: 22.5rem;
+}
+
+.home p.v22{
+    width: 1.5px;
+    height: 450px;
+    background-color: #f5f5f5;
+    rotate: 90deg;
+    margin-left: auto;
+    position: relative;
+    top: -49.1rem;
+    right: 21.3rem;
+}
+
+.heading li{
+    color: #de2626;
+    cursor: pointer;
+}
+
+
+
+.home .heading li:not(:hover){
+    color: #f5f5f5;
 }
 
 /* DESC */
@@ -94,7 +202,6 @@ body{
 }
 
 /* FIGURES */
-
 
 /* KING */
 .figures .king{
@@ -513,4 +620,52 @@ body{
 
 .figures .pawn .txt{
     margin-top: 1rem;
+}
+
+/* FINAL */
+
+.final .txt img{
+    position: relative;
+    width: 120%;
+    left: 40rem;
+    bottom: 170rem;
+    filter: drop-shadow(-10px 25px 5px rgba(0, 0, 0, 0.25));
+}
+
+.final .txt h3{
+    position: relative;
+    bottom: 110rem;
+    left: 25rem;
+    font-weight: 200;
+}
+
+.final .txt h1{
+    position: relative;
+    bottom: 113rem;
+    left: 15rem;
+    font-size: 4rem;
+}
+
+.final .txt p{
+    position: relative;
+    bottom: 115rem;
+    width: 30%;
+    text-align: center;
+    left: 15rem;
+    font-size: 1.3rem;
+}
+
+.final .txt button{
+    position: relative;
+    bottom: 110rem;
+    color: #f5f5f5;
+    background-color: #de2626;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 100));
+    cursor: pointer;
+    width: 17rem;
+    height: 4rem;
+    position: relative;
+    left: 20rem;
+    font-size: 1.9rem;    
+    border: none;
 }
