@@ -9,6 +9,7 @@
     width: 15%;
     display: flex;
     margin: auto;
+    cursor: pointer;
     /* border: 1px solid red; */
 }
 
@@ -32,8 +33,12 @@
 }
 
 .header .socials a{
-    color: black;
+    color: darkred;
     text-decoration: none;
+}
+
+.header .socials a:not(:hover){
+    color: black;
 }
 
 .header nav{
@@ -58,6 +63,12 @@
 
 .header ul.icons li{
     margin-left: 30px;
+    color: darkred;
+}
+
+.header ul.icons li:not(:hover){
+    margin-left: 30px;
+    color: black;
 }
 
 /* MAIN */
@@ -70,6 +81,7 @@
     margin-top: 2%;
     width: 90%;
     height: 70vh;
+    cursor: pointer;
 }
 
 .main img{
@@ -125,7 +137,13 @@
     list-style: none;
     text-align: center;
     font-family: "Inter", sans-serif;
+    cursor: pointer;
+    color: darkred;
     /* border: 1px solid black; */
+}
+
+.oversizeimg li :not(:hover){
+    color: black;
 }
 
 .oversizeimg img{
@@ -268,6 +286,7 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     width: 40%;
+    cursor: pointer;
     /* filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.25)); */
 }
 
@@ -275,6 +294,15 @@
     list-style: none;
     text-align: center;
     font-family: "Inter", sans-serif;
+    cursor: pointer;
+}
+
+.bestsellerimg li{
+    color: darkred;
+}
+
+.bestsellerimg li:not(:hover){
+    color:black;
 }
 
 .bestsellerimg ul li img{
@@ -410,6 +438,12 @@
     font-weight: 500;
     margin-top: 1%;
     margin-left: 20%;
+    color: darkred;
+    cursor: pointer;
+}
+
+.bestsellerimg>h1:not(:hover){
+    color:black;
 }
 
 .bestsellerimg>h2{
@@ -417,6 +451,12 @@
     font-weight: 400;
     margin-top: -.5%;
     margin-left: 22.5%;
+    color:darkred;
+    cursor: pointer;
+}
+
+.bestsellerimg>h2:not(:hover){
+    color: black;
 }
 
 .bestsellerimg>h3{
@@ -424,7 +464,14 @@
     font-weight: 300;
     margin-left: 24%;
     margin-top: -.5%;
+    color: darkred;
+    cursor: pointer;
 }
+
+.bestsellerimg>h3:not(:hover){
+    color: black;
+}
+
 
 /* BUTTON */
 
@@ -437,11 +484,18 @@ button{
     justify-content: center;
     align-items: center;
     border: 5px solid black;
-    background-color: white;
+    background-color: black;
+    color: white;
     font-size: 14px;
     letter-spacing: 9px;
     cursor: pointer;
     margin-top: 5%;
+}
+
+button:not(:hover){
+    background-color: white;
+    color: black;
+    border-color: black;
 }
 
 /* FOOTER */
@@ -470,6 +524,7 @@ footer img#main{
     margin: auto;
     width: 15%;
     margin-top: -5%;
+    cursor: pointer;
 }
 
 footer img#sub{
@@ -478,17 +533,6 @@ footer img#sub{
     margin-right: 5%;
     width: 15%;
     margin-top: -5%;
+    cursor: pointer;
 }
 
-/* MEDIA QUERIES */
-
-@media (max-width: 600px) {
-
-    /* HEADER */
-
-    .header img{
-        width: 20vw;
-        display: flex;
-        margin: auto;
-    }
-}
