@@ -103,7 +103,7 @@ width: 3rem;
 height:13.529769897460938px;
 margin-right: 2.5rem;
 position: relative;
-top: -3.2rem;
+top: -2.3rem;
 float: right;
 /* border: 1px solid red; */
 }
@@ -138,6 +138,7 @@ position:absolute;
 
 .nav
 {
+cursor: pointer;
 font-family: "Poppins", sans-serif;
 font-weight: 500;
 font-style: normal;
@@ -224,11 +225,11 @@ font-weight: 500;
 
 .img{
     width: 80rem;
-    filter:drop-shadow(-15px -15px 15px rgba(0,0,0,0.25));
+    filter:drop-shadow(-15px -15px 15px rgba(0,0,0,0.4));
     transform:rotate(45deg);
     position: fixed;
     left: -35rem;
-    top: 10rem;
+    top: 15rem;
 } 
 
 /* sidetxt */
@@ -236,7 +237,244 @@ font-weight: 500;
     font-family: 'Poppins', sans-serif;
 }
 
+.per100g{
+    font-size: 12px;
+    color: #C64646;
+    font-weight: 900;
+    letter-spacing: 31px;
+    position: fixed;
+    left: 11.5rem;
+    top: 20.5rem;
+    rotate: -135deg;
+}
+
+.kj{
+    font-size: 20px;
+    color: #df4040;
+    font-weight: 800;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 16rem;
+    top: 11rem;
+    rotate: -45deg;
+}
+
+.energy{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 17.5rem;
+    top: 13.5rem;
+    rotate: -45deg;
+}
+
+.g{
+    font-size: 20px;
+    color: #df4040;
+    font-weight: 800;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 19.5rem;
+    top: 15rem;
+    rotate: -45deg;
+}
+
+.protein{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 21rem;
+    top: 16.7rem;
+    rotate: -45deg;
+}
+
+.g9{
+    font-size: 20px;
+    color: #df4040;
+    font-weight: 800;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 23.5rem;
+    top: 19rem;
+    rotate: -45deg;
+}
+
+.carbohydrate{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 23.5rem;
+    top: 17.7rem;
+    rotate: -45deg;
+}
+
+.g11{
+    font-size: 20px;
+    color: #df4040;
+    font-weight: 800;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 26.5rem;
+    top: 22rem;
+    rotate: -45deg;
+}
+
+.sugar{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    letter-spacing: 10px;
+    position: fixed;
+    left: 27.8rem;
+    top: 23.7rem;
+    rotate: -45deg;
+}
+
 /* MEDIA QUERIES */
+@media screen and (max-width : 1200px){
+    .asidetxt,#p1g,.sub,.buttons,#desc{
+        display: none;
+    }
+
+    .minisub{
+        position: fixed;
+        bottom: 10rem;
+        right: -2rem;
+        width: 350px;
+        text-align: center;
+    }
+
+    #minifive{
+        font-size: 4rem;
+        font-weight: 900; 
+        text-shadow: -2px -4px #ffa800;
+        letter-spacing: 5px;
+        color: #ab5138;
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+    }
+
+    #minigroup13{
+        width: 13rem;
+    }
+
+    #minidesc{
+        position: fixed;
+        bottom: 3rem;
+        right: 1rem;
+        width: 250px;
+        font-family: "Sulphur Point", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    #minione{
+        position: fixed;
+        bottom: .5rem;
+        right: 10.5rem;
+        border: none;
+        color: #FF5959;
+        background-color:white ;
+        font-size: 10px;
+        padding: .5rem;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 5rem;
+        font-family: 'Poppins', sans-serif;
+        transition: 100ms;
+        border: 3px solid black ;
+        border-style: solid;
+    }
+
+    #minione:not(:hover){
+        color: white;
+        background-color: #FF5959;
+        border: 0; 
+    }
+
+
+    #minitwo{
+        position: fixed;
+        bottom: .5rem;
+        right: 3.5rem;
+        border: none;
+        color:  white;
+        background-color:#FF5959;
+        font-size: 10px;
+        padding: .5rem;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 5rem;
+        font-family: 'Poppins', sans-serif; 
+        transition: 100ms;
+        border: 3px solid black ;
+        border-style: solid;
+    }
+
+    #minitwo:not(:hover){
+        color: #FF5959;
+        background-color: white ;
+        border: 0;        
+    }
+
+
+    footer {
+        background-color: #fff;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0; 
+        width: 100%;
+        z-index: -1;
+    }
+
+    footer img {
+        width: 80px;
+    }
+
+    .company-info {
+        text-align: center;
+        line-height: 30px;
+        font-size: 15px;
+    }
+
+    .contact-form form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .contact-form button {
+        background-color: #FF5959;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .contact-form h4{
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+
+}
 
 @media screen and (min-width : 1200px){
 
@@ -271,12 +509,179 @@ font-weight: 500;
 
     .img {
         width: 100rem;
-        filter: drop-shadow(-15px -15px 15px rgba(0, 0, 0, 0.25));
+        filter: drop-shadow(-15px -15px 15px rgba(0, 0, 0, 0.4));
         transform: rotate(45deg);
         position: fixed;
         left: 50%;
         top: 70%;
         transform: translate(-50%, -50%);
     }
+
+    .per100g,.kj,.energy,.g,.protein,.g9,.carbohydrate,.g11,.sugar,.minisub,.minibuttons,#minidesc{
+        display: none;
+    }
+
+    .asidetxt{
+        position: fixed;
+        top: 25rem;
+        font-family: 'Poppins', sans-serif; 
+        line-height: 2rem;
+        right: 8rem;
+    }
     
+    #p1g{
+        position: fixed;
+        top: 32rem;
+        color: #C64646;
+        font-size: 10px;
+        letter-spacing: 28px;
+        font-weight: 900;
+        position: absolute;
+        rotate: 270deg;
+        right: 11rem;
+    }
+
+    #kj,#pr,#carbs,#sug{
+        color: #df4040;
+        font-size: 25px;
+        letter-spacing: 5px;
+        font-weight: 800;
+    }
+
+    #energy,#p,#carb,#su{
+        color: rgba(0, 0, 0, 0.25);
+        font-size: 15px;
+        letter-spacing: 3px;
+        font-weight: 700;
+    }
+
+    .sub{
+        position: fixed;
+        top: 25rem;
+        left: 3%;
+        width: 350px;
+        text-align: center;
+    }
+
+    #five{
+        font-size: 4.5rem;
+        font-weight: 900; 
+        text-shadow: -2px -4px #ffa800;
+        letter-spacing: 10px;
+        color: #ab5138;
+        font-family: "Titan One", sans-serif;
+        font-weight: 400;
+    }
+
+    #group13{
+        margin-top: .5rem;
+        width: 15rem;
+    }
+
+    #desc{
+        position: fixed;
+        top: 32.5rem;
+        left: 4.5%;
+        width: 320px;
+        font-family: "Sulphur Point", sans-serif;
+        font-weight: 500;
+    }
+
+
+    #one{
+        position: fixed;
+        top: 42rem;
+        left: 5rem;
+        border: none;
+        color: #FF5959;
+        background-color: white;
+        font-size: 20px;
+        padding: .5rem;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 7rem;
+        font-family: 'Poppins', sans-serif;
+        transition: 100ms;
+        border: 3px solid black ;
+        border-style: solid;
+    }
+
+    #one:not(:hover){
+        color: white;
+        background-color: #FF5959;
+        border: 0; 
+    }
+
+    #two{
+        position: fixed;
+        top: 42rem;
+        left: 14rem;
+        border: none;
+        color: white;
+        background-color: #FF5959 ;
+        font-size: 20px;
+        padding: .5rem;
+        cursor: pointer;
+        border-radius: 50px;
+        width: 7rem;
+        font-family: 'Poppins', sans-serif; 
+        transition: 100ms;
+        border: 3px solid black ;
+        border-style: solid;
+    }
+
+    #two:not(:hover){
+        color: #FF5959;
+        background-color: white ;
+        border: 0;        
+    }
+
+    footer {
+        background-color: #fff;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0; 
+        width: 100%;
+        z-index: -1;
+    }
+
+    footer img {
+        width: 100px;
+    }
+
+    .company-info {
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .contact-form form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .contact-form button {
+        background-color: #FF5959;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .contact-form h4{
+        text-align: center;
+        padding-bottom: 1rem;
+    }
 }
