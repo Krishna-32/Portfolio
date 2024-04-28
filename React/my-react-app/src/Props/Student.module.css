@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.student{
+    /* display: inline-block; */
+    border: 3px solid black;
+    width: 15rem;
+    text-align: center;
+    line-height: 30px;
+    margin: 5px;
+}

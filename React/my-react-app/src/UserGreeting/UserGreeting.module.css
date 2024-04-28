@@ -1,0 +1,17 @@
+.login{
+    color: aliceblue;
+    background-color: green;
+    text-align: center;
+    width: 50rem;
+    font-size: 3rem;
+    margin: auto;
+}
+
+.logout{
+    color: aliceblue;
+    background-color: red;
+    text-align: center;
+    width: 50rem;
+    font-size: 3rem;
+    margin: auto;
+}
