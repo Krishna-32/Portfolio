@@ -1,10 +1,10 @@
-import Test from "./Clock/Test";
+import Calculator from "./Practice/Calc/Calculator";
 
 function App(){
 
     return(
         <>
-        <Test/>
+        <Calculator/>
         </>
     );
 }
