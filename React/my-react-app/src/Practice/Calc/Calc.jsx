@@ -36,7 +36,7 @@ function Calc(){
             total = subtract()
         }
 
-        setResult(total)
+        setResult(total) 
     }
 
     return(

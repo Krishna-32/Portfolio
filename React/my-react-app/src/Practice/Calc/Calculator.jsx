@@ -22,6 +22,18 @@ function Calculator(){
         })
     }
 
+    function changeSign() {
+        setValue(prevValue => {
+            if (prevValue === '-0' || prevValue === '0') {
+                return '0';
+            } else if (prevValue.charAt(0) === '-') {
+                return prevValue.slice(1);
+            } else {
+                return '-' + prevValue;
+            }
+        });
+    }
+
     function Result(){
         setValue(eval(value))
     }
@@ -38,7 +50,7 @@ function Calculator(){
             <span className='result'>{value}</span>
             <div className={styles.buttons}>
                 <button className={styles.button1} onClick={clear} >C</button>
-                <button className={styles.button1} onClick={getValue} value="±">±</button>
+                <button className={styles.button1} onClick={changeSign} value="±">±</button>
                 <button className={styles.button1} onClick={getValue} value="%">%</button>
                 <button className={styles.button2} onClick={getValue} value="/">÷</button>
                 <br />
@@ -57,7 +69,7 @@ function Calculator(){
                 <button className={styles.button3} onClick={getValue} value="3">3</button>
                 <button className={styles.button2} onClick={getValue} value="+">+</button>
                 <br />
-                <button className={styles.button3} onClick={getValue} value="²">²</button>
+                <button className={styles.button3} onClick={getValue} value="**">²</button>
                 <button className={styles.button3} onClick={getValue} value="0">0</button>
                 <button className={styles.button3} onClick={getValue} value=".">.</button>
                 <button className={styles.button2} onClick={Result}>=</button>
