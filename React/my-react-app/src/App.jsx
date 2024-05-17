@@ -1,15 +1,35 @@
-// import Hoc from "./Practice/Hoc/Hoc";
-import Person1 from "./Practice/Hoc/Person1";
-import Person2 from "./Practice/Hoc/Person2";
-
+import Navbar from './Practice/Routing/Navbar'
+import Home from './Practice/Routing/Home'
+import About from './Practice/Routing/About'
+import Profile from './Practice/Routing/Profile'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import NotFound from './Practice/Routing/NotFound';
 
 function App(){
 
+    const router = createBrowserRouter([
+        {
+        path: '/Home',
+        element: <><Navbar/> <Home/></>,
+        },
+        {
+        path: '/About',
+        element: <><Navbar/> <About/></>,
+        },
+        {
+        path: '/Profile/:profileName',
+        element: <><Navbar/> <Profile/></>,
+        },
+        {
+            path: '*',
+            element: <NotFound />
+        }
+    ])
+
     return(
         <>
-        <h1>Auction</h1>
-        <Person1/>
-        <Person2/>
+            
+            <RouterProvider router={router}/>
         </>
     );
 }

@@ -31,7 +31,6 @@ const Logic = (props) =>{
         }
 
         else{
-            
             if (gender == "men"){
                 setResult(10 * weight + 6.25 * height - 5 * age + 5)
                 displayRef.current.style.display = 'block';

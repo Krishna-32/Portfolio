@@ -1,0 +1,13 @@
+li{
+    list-style: none;
+}
+
+.inactiveLink,
+.activeLink {
+    text-decoration: none;
+    color: black;
+}
+
+.activeLink {
+    color: blue; /* Apply active link styles, e.g., change text color */
+}

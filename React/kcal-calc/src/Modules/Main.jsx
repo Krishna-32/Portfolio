@@ -10,7 +10,7 @@ function Main(){
                 <div className={styles.container}>
                     <h1>Calorie Calculator</h1>
 
-                    <div className={styles.gender}>
+                    <div className={styles.gender}> 
                         <input type="radio" id="men" name="gender" value="men" checked = {gender === 'men'} onChange={handleGenderChange} />
                         <label htmlFor="men">Men</label>
                         &emsp;&emsp;

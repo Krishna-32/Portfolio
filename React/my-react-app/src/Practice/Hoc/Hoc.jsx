@@ -13,4 +13,4 @@ const Hoc = (OriginalComponent) => {
     return NewComponent; 
 }
 
-export default Hoc;2w
+export default Hoc;
