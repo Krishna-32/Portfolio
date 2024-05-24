@@ -1,35 +1,18 @@
-import Navbar from './Practice/Routing/Navbar'
-import Home from './Practice/Routing/Home'
-import About from './Practice/Routing/About'
-import Profile from './Practice/Routing/Profile'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import NotFound from './Practice/Routing/NotFound';
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './Practice/Redux/Counter/counterSlice';
 
 function App(){
 
-    const router = createBrowserRouter([
-        {
-        path: '/Home',
-        element: <><Navbar/> <Home/></>,
-        },
-        {
-        path: '/About',
-        element: <><Navbar/> <About/></>,
-        },
-        {
-        path: '/Profile/:profileName',
-        element: <><Navbar/> <Profile/></>,
-        },
-        {
-            path: '*',
-            element: <NotFound />
-        }
-    ])
+    const count = useSelector((state) => state.counter.value)
+    const dispatch = useDispatch()
 
     return(
         <>
-            
-            <RouterProvider router={router}/>
+            <div>
+                <button onClick={()=> dispatch(decrement())}>-</button>
+                {count}
+                <button onClick={()=> dispatch(increment())}>+</button>
+            </div>
         </>
     );
 }
