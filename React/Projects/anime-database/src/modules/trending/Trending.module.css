@@ -1,0 +1,29 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.heading{
+    font-size: 1.2em;
+    text-align: left;
+}
+
+strong{
+    color: rgba(239, 254, 246, 0.75);
+}
+
+.trending{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 1rem;
+    font-weight: 400;
+    color: #0d8849;
+}
+
+.trendingImg{
+    aspect-ratio: 9/16;
+    width: 10rem;
+    margin-top: 2rem;
+}

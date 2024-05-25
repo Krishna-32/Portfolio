@@ -1,0 +1,29 @@
+.container{
+    color: #0d8849;
+}
+
+.searchbar{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+li{
+    list-style: none;
+}
+
+input{
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 1rem;
+}
+
+select{
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 1rem;
+        width: 11rem;
+}
