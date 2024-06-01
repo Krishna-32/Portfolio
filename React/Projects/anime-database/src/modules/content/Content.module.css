@@ -13,17 +13,16 @@ strong{
     color: rgba(239, 254, 246, 0.75);
 }
 
-.trending{
+.content{
     margin-top: 2rem;
     font-size: 1.5rem;
     text-align: left;
     margin-left: 1rem;
     font-weight: 400;
     color: #0d8849;
-    text-align: center;
 }
 
-.trendingImg{
+.contentImg{
     aspect-ratio: 9/16;
     width: 10rem;
     margin-top: 2rem;
