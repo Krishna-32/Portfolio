@@ -25,6 +25,8 @@ p {
 .footer {
     margin-top: auto; 
     width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 nav{
     width: 100%;
