@@ -20,6 +20,8 @@ p {
     color: #0cad5a;
     text-align: center;
     background-color: #02311b;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 .footer {
