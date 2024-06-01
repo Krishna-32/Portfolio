@@ -17,10 +17,11 @@ body, html {
 }
 
 p {
-    color: white;
+    color: #0cad5a;
     text-align: center;
-    padding-top: 2rem;
-    background-color: green;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #02311b;
 }
 
 .footer {
