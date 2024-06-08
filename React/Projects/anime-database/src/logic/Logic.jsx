@@ -49,7 +49,7 @@ const Logic = (props) => {
             })
             .then((resJson) => {
                 setTopAnime(resJson)
-                // console.log("#",topAnime)
+                console.log("#",topAnime)
                 setError(null)
             })
             .catch((err) => {
