@@ -84,10 +84,12 @@ input[type="checkbox"] {
     cursor: pointer;
     font-size: 25px;
     transition: transform 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 .toggle-btn:hover{
     transform: scale(1.2);
+    background-color: white;
 }
 
 .toggle-btn.center-btn {
