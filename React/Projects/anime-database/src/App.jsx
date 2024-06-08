@@ -28,7 +28,7 @@ function App() {
 
                           {error ? (
 
-                            <p>Error: {error}</p>
+                            <strong>Error: {error}</strong>
 
                           ) : 
 
