@@ -1,0 +1,28 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #fafcfe;
+}
+
+img#main{
+    position: absolute;
+    top: 190vh;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+img#back{
+    position: relative;
+    top: 140vh;
+    z-index: 2;
+    left: 5rem;
+}
+
+img#front{
+    position: relative;
+    z-index: 3;
+    top: 125vh;
+    left: 18rem;
+}

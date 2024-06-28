@@ -1,0 +1,29 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #6C4D41;
+    margin-top: 20rem;
+}
+
+img#back{
+    position: absolute;
+    top: 310vh;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+img#mid{
+    position: relative;
+    top: 97vh;
+    z-index: 2;
+    width: 100%;
+}
+
+img#front{
+    position: relative;
+    z-index: 3;
+    top: 68vh;
+    width: 100%;
+}
