@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* In your CSS file (e.g., styles.css) */
+
+@font-face {
+  font-family: 'NeueMontreal-Regular';
+  src: url("./assets/Fonts/NeueMontreal/NeueMontreal-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'NeueMontreal-Medium';
+  src: url("./assets/Fonts/NeueMontreal/NeueMontreal-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'GroteskCondensed-Medium';
+  src: url("./assets/Fonts/FoundersGroteskFontFamily/TestFoundersGroteskCondensed-Medium-BF66175e9727e55.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'GroteskCondensed-Bold';
+  src: url("./assets/Fonts/FoundersGroteskFontFamily/TestFoundersGrotesk-Bold-BF66175e9700615.otf") format("opentype");
+}
+
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  background-image:
+  repeating-linear-gradient(
+      to right, transparent 0 100px,
+      #25283b22 100px 101px
+  ),
+  repeating-linear-gradient(
+      to bottom, transparent 0 100px,
+      #25283b22 100px 101px
+  );
+}
+
+body::before{
+  position: absolute;
+  width: min(1400px, 90vw);
+  top: 10%;
+  left: 50%;
+  height: 90%;
+  transform: translateX(-50%);
+  content: '';
+  background-image: url(images/bg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  pointer-events: none;
+} */
