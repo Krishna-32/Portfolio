@@ -6,14 +6,18 @@ import animationGmail from "../../../public/animations/gmail.json";
 import animationInsta from "../../../public/animations/insta.json"; 
 
 function About() {
-    const linedin = useRef(null);
+    const linkedin = useRef(null);
     const github = useRef(null);
     const gmail = useRef(null);
     const insta = useRef(null);
 
+    const handleClick = (url) => {
+        window.open(url, '_blank');
+      }
+
     useEffect(() => {
         Lottie.loadAnimation({
-            container: linedin.current,
+            container: linkedin.current,
             renderer: 'svg',
             loop: true,
             autoplay: true,
@@ -87,13 +91,13 @@ function About() {
 
                     <div className="w-full">
                             <div className="flex gap-24">
-                                <div className="w-24 cursor-pointer" ref={linedin}></div>
+                                <div onClick={()=>handleClick('https://www.linkedin.com/in/krishna-guptaa/')} className="w-24 cursor-pointer" ref={linkedin}></div>
 
-                                <div className="w-14 cursor-pointer" ref={github}></div>
+                                <div onClick={()=>handleClick('https://github.com/Krishna-32')} className="w-14 cursor-pointer" ref={github}></div>
 
-                                <div className="w-20 cursor-pointer" ref={gmail}></div>
+                                <div onClick={()=>handleClick('mailto:krishnagupta33937@gmail.com')} className="w-20 cursor-pointer" ref={gmail}></div>
 
-                                <div className="w-20 cursor-pointer" ref={insta}></div>
+                                <div onClick={()=>handleClick('https://www.instagram.com/krix.naa/')} className="w-20 cursor-pointer" ref={insta}></div>
                             </div>
                     </div>
 

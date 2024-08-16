@@ -24,7 +24,7 @@
   src: url("./assets/Fonts/FoundersGroteskFontFamily/TestFoundersGrotesk-Bold-BF66175e9700615.otf") format("opentype");
 }
 
-/* *{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -41,6 +41,8 @@ body{
       to bottom, transparent 0 100px,
       #25283b22 100px 101px
   );
+
+  overflow-x: hidden;
 }
 
 body::before{
@@ -56,4 +58,4 @@ body::before{
   background-repeat: no-repeat;
   background-position: top center;
   pointer-events: none;
-} */
+}

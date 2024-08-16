@@ -19,7 +19,7 @@ function App() {
     <>
       <div className=" main w-full relative z-[1]">
 
-        <div className="absolute w-full z-40 "><Nav /></div>
+        <div className="absolute w-full z-40 "><Nav /></div>  
 
         <div><Home /></div>
 
