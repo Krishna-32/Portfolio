@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+*,::after,::before{
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::selection {
+  color: #fff;
+  background-color: #000;
+}
+
+@font-face {
+  font-family: "gucci-bold";
+  src: url("/src/assets/fonts/GucciSansPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "gucci-medium";
+  src: url("/src/assets/fonts/GucciSansPro-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "gucci-light";
+  src: url("/src/assets/fonts/GucciSansPro-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "gucci-book";
+  src: url("/src/assets/fonts/GucciSansPro-Book.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "gucci";
+  src: url("/src/assets/fonts/pxiEyp8kv8JHgFVrJJfecg.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "gucci-main";
+  src: url("/src/assets/fonts/Assassin$.ttf") format("truetype");
+}
