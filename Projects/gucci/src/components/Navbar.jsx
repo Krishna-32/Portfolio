@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react'
 import React, { useRef } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Cross from "../svgs/Cross";
+import Plus from "../svgs/Plus";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,7 +78,7 @@ function Navbar() {
     <div ref={background} className="bg-white w-full h-[4.5vw] -translate-y-[4.5vw]">
       <div className="flex items-center w-full h-full pl-20 font-[gucci-bold] text-[12px]">
         <span className="flex items-center gap-1 cursor-pointer group">
-          <Cross className="transition-transform duration-300 group-hover:rotate-45 "/> &nbsp;
+          <Plus className="transition-transform duration-300 group-hover:rotate-45 "/> &nbsp;
           <p>Contact Us</p>
         </span>
       </div>

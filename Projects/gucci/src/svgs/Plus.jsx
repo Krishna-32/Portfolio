@@ -1,7 +1,7 @@
 // icon:plus | Typicons https://www.s-ings.com/typicons/ | Stephen Hutchings
 import * as React from "react";
 
-function Cross(props) {
+function Plus(props) {
   return (
     <svg
       baseProfile="tiny"
@@ -16,4 +16,4 @@ function Cross(props) {
   );
 }
 
-export default Cross;
+export default Plus;
