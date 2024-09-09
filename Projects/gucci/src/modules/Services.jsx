@@ -20,7 +20,7 @@ function VideoCard({ src, title, description, cta }) {
   return (
     <div className='flex flex-col gap-10 items-center pb-20 overflow-hidden'>
       <div className='relative'>
-        <video ref={videoRef} width={500} autoPlay muted loop disablePictureInPicture>
+        <video className='cursor-pointer' ref={videoRef} width={500} autoPlay muted loop disablePictureInPicture>
           <source src={src} type='video/mp4' />
           Your browser does not support the video tag.
         </video>
@@ -43,7 +43,7 @@ function VideoCard({ src, title, description, cta }) {
             dangerouslySetInnerHTML={{ __html: description }}
           ></p>
         </div>
-        <span className='font-[gucci-medium] tracking-tighter'>
+        <span className='font-[gucci-medium] tracking-tighter cursor-pointer'>
           {cta}
         </span>
       </div>
