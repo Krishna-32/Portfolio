@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react'
 import React, { useRef } from 'react'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Plus from "../svgs/Plus";
+import Plus from "../svgs/Cross";
 
 gsap.registerPlugin(ScrollTrigger);
 
