@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react'
+import { gsap } from "gsap";
 import Play from '../svgs/Play';
 import Pause from '../svgs/Pause';
+
 
 function VideoCard({ src, title, description, cta }) {
   const [isPlaying, setIsPlaying] = useState(true);
@@ -16,7 +18,7 @@ function VideoCard({ src, title, description, cta }) {
   };
 
   return (
-    <div className='flex flex-col gap-10 items-center pb-20'>
+    <div className='flex flex-col gap-10 items-center pb-20 overflow-hidden'>
       <div className='relative'>
         <video ref={videoRef} width={500} autoPlay muted loop disablePictureInPicture>
           <source src={src} type='video/mp4' />
