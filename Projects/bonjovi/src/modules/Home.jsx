@@ -6,7 +6,7 @@ function Home() {
 
         <div className='left pt-20'>
 
-            <div className='top pl-[12vw]'>
+            <div className='top pl-[12vw] pt-5'>
                 <p className='text-whitee font-founder tracking-tighter text-xl leading-2'>
                 Take a journey through four decades and <br />
                 counting of Bon Jovi history. With millions of <br />
