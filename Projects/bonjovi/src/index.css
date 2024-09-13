@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,::after,::before{
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "founder";
+    src: url("../public/Font/founders-grotesk-mono.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "formulal";
+    src: url("../public/Font/FormulaCondensed-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "formulab";
+    src: url("../public/Font/FormulaCondensed-Bold.otf") format("opentype");
+}

@@ -1,9 +1,14 @@
 import React from 'react'
+import Home from './modules/Home'
 
 function App() {
   return (
-    <div>
-      
+    <div className='wrapper'>
+
+      <div>
+        <Home/>
+      </div>
+
     </div>
   )
 }

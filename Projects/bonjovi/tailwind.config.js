@@ -7,8 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        bgblack : '#090909',
-        bgwhite : '#efefea'
+        blackk : '#090909',
+        whitee : '#efefea',
+      },
+      fontFamily: {
+        founder: ["founder", "sans-serif"],
+        formulal: ["formulal", "sans-serif"],
+        formulab: ["formulab", "sans-serif"],
       }
     },
   },
