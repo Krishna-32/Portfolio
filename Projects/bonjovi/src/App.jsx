@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-
+ this is test
     <div className='wrapper'>
 
       <Navbar className="fixed z-[99] w-full top-0"/>
