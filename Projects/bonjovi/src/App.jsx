@@ -11,7 +11,7 @@ function App() {
 
     <div className='wrapper'>
 
-      <Navbar className="fixed z-50 w-full top-0"/>
+      <Navbar className="fixed z-[99] w-full top-0"/>
 
       <div>
         <Home/>
