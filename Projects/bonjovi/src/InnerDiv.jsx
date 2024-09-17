@@ -1,4 +1,3 @@
-// InnerDiv.js
 import React, { useRef, useEffect } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -27,8 +26,14 @@ const InnerDiv = ({ children }) => {
   }, []);
 
   return (
-    <div ref={innerDivRef} className='absolute w-full flex justify-center items-center uppercase font-formulab text-[10vw] flex-col gap-[50vw] top-full'>
-      {children}
+    <div ref={innerDivRef} className='absolute w-full flex flex-col gap-[50vw] top-full'>
+      {React.Children.map(children, (child, index) => (
+        <div 
+          className={`w-full flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} items-center uppercase font-formulab text-[10vw]`}
+        >
+          <span className={`${index % 2 === 0 ? 'ml-32' : 'mr-32'}`}>{child}</span>
+        </div>
+      ))}
     </div>
   );
 };

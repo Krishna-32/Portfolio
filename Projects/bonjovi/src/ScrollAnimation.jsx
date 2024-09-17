@@ -1,11 +1,11 @@
-// Section.js
+// ScrollAnimation.js
 import React, { useRef, useEffect } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section = ({ children, duration = 1000 }) => {
+const ScrollAnimation = ({ children, duration = 1000 }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Section = ({ children, duration = 1000 }) => {
         end: `+=${duration}`, // Adjust to control how long it stays pinned
         pin: true,
         scrub: true,
-        markers: true // For debugging; you can remove later
+        markers: false // For debugging; you can remove later
       });
 
       gsap.to(containerRef.current.querySelector('.scroll-content'), {
@@ -41,4 +41,4 @@ const Section = ({ children, duration = 1000 }) => {
   );
 };
 
-export default Section;
+export default ScrollAnimation;
