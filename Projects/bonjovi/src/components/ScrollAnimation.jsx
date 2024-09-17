@@ -18,17 +18,6 @@ const ScrollAnimation = ({ children, duration = 1000 }) => {
         scrub: true,
         markers: false // For debugging; you can remove later
       });
-
-      gsap.to(containerRef.current.querySelector('.scroll-content'), {
-        yPercent: -100, // Moves the inner content up while scrolling
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: `+=${duration}`,
-          scrub: 1,
-        },
-      });
     });
 
     return () => ctx.revert(); // Cleanup on unmount

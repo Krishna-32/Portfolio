@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,30 +9,42 @@ const InnerDiv = ({ children }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Scroll through innerDiv while pinning
       gsap.to(innerDivRef.current, {
-        yPercent: -100, // Moves the inner div up while scrolling
+        yPercent: -100,
         ease: "none",
         scrollTrigger: {
-          trigger: innerDivRef.current.parentElement, // Parent element is the trigger
+          trigger: innerDivRef.current.parentElement,
           start: "top top",
-          end: "+=1000", // Adjust to control how long it stays pinned
-          scrub: 1,
+          end: "+=1000",
+          scrub: 2,
         },
       });
     });
 
-    return () => ctx.revert(); // Cleanup on unmount
+    return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={innerDivRef} className='absolute w-full flex flex-col gap-20 top-full'>
+    <div
+      ref={innerDivRef}
+      className="absolute w-full flex flex-col gap-20 top-full"
+    >
       {React.Children.map(children, (child, index) => (
-        <div 
-          className={`w-full flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} items-center uppercase font-formulab text-[10vw]`}
+        <div
+          key={index} // Add key for each child
+          className={`relative flex ${
+            index % 2 === 0 ? "justify-start" : "justify-end"
+          } items-center uppercase font-formulab text-[10vw] w-full px-5`}
         >
-          <span className={`${index % 2 === 0 ? 'ml-32' : '-mr-40'}`}>{child}</span>
+          <span
+            className={`flex ${
+              index % 2 === 0 ? "justify-start" : "justify-end"
+            } w-full`}
+          >
+            {child}
+          </span>
         </div>
+
       ))}
     </div>
   );
