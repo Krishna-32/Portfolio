@@ -10,7 +10,7 @@ const Svg = () => {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 28 28"
-      className={`absolute bottom-2 right-2 mix-blend-difference transition-transform duration-300 ${isHovered ? 'rotate-[180deg] scale-0' : ''}`}
+      className={`absolute bottom-2 right-2 mix-blend-difference transition-transform duration-300 ${isHovered ? '-rotate-[180deg] scale-0' : ''}`}
       width="24"
       height="24"
     >

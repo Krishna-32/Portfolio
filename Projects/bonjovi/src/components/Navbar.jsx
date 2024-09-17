@@ -23,7 +23,7 @@ function Navbar({ className }) {
                 </span>
             })}
             <div className='cursor-pointer'>
-            <svg width={'1.2vw'} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="11.879 13.214 17.431 16.621" class="null stroke-white"><path d="M13.5 20.412v2M16.793 18.118v6.588M20.09 16.471v9.882M23.383 14v14.823M26.676 18.118v6.588"></path></svg>
+            <svg width={'1.2vw'} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="11.879 13.214 17.431 16.621" className="null stroke-white"><path d="M13.5 20.412v2M16.793 18.118v6.588M20.09 16.471v9.882M23.383 14v14.823M26.676 18.118v6.588"></path></svg>
             </div>
         </div>
 
