@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import Home from './modules/Home';
-import { Bg, Navbar, InnerDiv, ScrollAnimation } from './components'
+import { Bg, Navbar, InnerDiv, ScrollAnimation, Camera } from './components'
 import LocomotiveScroll from "locomotive-scroll";
 import { Bon1, Bon2, Bon3, Bon4 } from './Images/Bon Jovi';
 import { Fah1, Fah2, Fah3, Fah4, Fah5 } from './Images/Fahrenheit';
+import { Slip1, Slip2, Slip3, Slip4 } from './Images/Slippery';
 
 
 function App() {
@@ -54,10 +55,10 @@ function App() {
         <ScrollAnimation duration={1000}>
           <Bg color='blackk' bgcolor='whitee' title='SLIPPERY WHEN WET' date='1986 - 1988'/>
           <InnerDiv>
-            <Bon1 title='Album cover outtake'/>
-            <Bon2 title='Early Band Promotion'/>
-            <Bon3 title="Runaway tour t-shirt"/>         
-            <Bon4 title="Jon's Runaway Tour Itinerary"/>         
+            <Slip1 title={<Camera/>}/>
+            <Slip2 title='Slippery When Wet Tour Program'/>
+            <Slip3 title="1988 Press Photo"/>         
+            <Slip4 title="Special Guest Little Steven"/>         
           </InnerDiv>
         </ScrollAnimation>
 

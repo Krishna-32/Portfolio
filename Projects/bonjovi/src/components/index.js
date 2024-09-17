@@ -3,3 +3,4 @@ export { default as InnerDiv } from './InnerDiv';
 export { default as Navbar } from './Navbar';
 export { default as ScrollAnimation } from './ScrollAnimation';
 export { default as Svg } from './Svg';
+export { default as Camera } from './Camera';
