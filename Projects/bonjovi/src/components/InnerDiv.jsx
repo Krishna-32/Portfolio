@@ -26,12 +26,12 @@ const InnerDiv = ({ children }) => {
   }, []);
 
   return (
-    <div ref={innerDivRef} className='absolute w-full flex flex-col gap-[50vw] top-full'>
+    <div ref={innerDivRef} className='absolute w-full flex flex-col gap-20 top-full'>
       {React.Children.map(children, (child, index) => (
         <div 
           className={`w-full flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} items-center uppercase font-formulab text-[10vw]`}
         >
-          <span className={`${index % 2 === 0 ? 'ml-32' : 'mr-32'}`}>{child}</span>
+          <span className={`${index % 2 === 0 ? 'ml-32' : '-mr-40'}`}>{child}</span>
         </div>
       ))}
     </div>
