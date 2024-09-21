@@ -1,0 +1,5 @@
+export { default as Abt1 } from './Img1'
+export { default as Abt2 } from './Img2'
+export { default as Abt3 } from './Img3'
+export { default as Abt4 } from './Img4'
+export { default as Abt5 } from './Img5'

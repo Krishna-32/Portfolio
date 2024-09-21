@@ -4,8 +4,10 @@ import { Bg, Navbar, InnerDiv, ScrollAnimation, Camera } from './components'
 import { Bon1, Bon2, Bon3, Bon4 } from './Images/Bon Jovi';
 import { Fah1, Fah2, Fah3, Fah4, Fah5 } from './Images/Fahrenheit';
 import { Slip1, Slip2, Slip3, Slip4 } from './Images/Slippery';
+import { Abt1,Abt2, Abt3, Abt4, Abt5 } from './Images/About';
 import LocomotiveScroll from "locomotive-scroll";
 import Marquee from './modules/Marquee/Marquee';
+import About from './modules/About';
 
 
 function App() {
@@ -63,7 +65,11 @@ function App() {
         </div>
 
         <div>
-          <Home />
+          <About title='get ready' date='1975 - 1982' img={<Abt1/>}/>
+          <About title='the origin story' date='1982 - 1983' img={<Abt2/>}/>
+          <About title='bon jovi' date='1983 - 1985' img={<Abt3/>}/>
+          <About title='7800° Fahrenheit' date='1985 - 1986' img={<Abt4/>}/>
+          <About title='slippery when wet' date='1986 - 1988' img={<Abt5/>}/>
         </div>
 
       </div>

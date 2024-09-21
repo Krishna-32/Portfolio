@@ -13,7 +13,7 @@ function Marquee() {
   }, []);
 
   return (
-    <div className="bg-black w-full h-[65vmin] flex justify-center items-center">
+    <div className="bg-blackk w-full h-[65vmin] flex justify-center items-center">
       <div
         className="outline-text opacity-75 text-[10vw] font-formulab uppercase pt-8 flex gap-10 overflow-hidden"
       >
