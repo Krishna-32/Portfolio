@@ -1,32 +1,26 @@
 import React, { useEffect } from 'react';
 import Home from './modules/Home';
 import { Bg, Navbar, InnerDiv, ScrollAnimation, Camera } from './components'
-import LocomotiveScroll from "locomotive-scroll";
 import { Bon1, Bon2, Bon3, Bon4 } from './Images/Bon Jovi';
 import { Fah1, Fah2, Fah3, Fah4, Fah5 } from './Images/Fahrenheit';
 import { Slip1, Slip2, Slip3, Slip4 } from './Images/Slippery';
+import LocomotiveScroll from "locomotive-scroll";
+import Marquee from './modules/Marquee/Marquee';
 
 
 function App() {
 
-  useEffect(() => {
-    const locomotiveScroll = new LocomotiveScroll({
-      el: document.querySelector("[data-scroll-container]"),
-      smooth: true,
-    });
-
-    return () => {
-      locomotiveScroll.destroy();
-    };
-  }, []);
+  const locomotiveScroll = new LocomotiveScroll();
 
   return (
     <>
-      <div className='wrapper'>
+      <div className='wrapper overflow-x-hidden'>
         <Navbar className="fixed z-[99] w-full top-0" />
         <div>
           <Home />
         </div>
+        
+        <div className='overflow-y-hidden'>
 
         {/* Wrap Page1 with ScrollAnimation */}
         <ScrollAnimation duration={1000}>
@@ -61,6 +55,16 @@ function App() {
             <Slip4 title="Special Guest Little Steven"/>         
           </InnerDiv>
         </ScrollAnimation>
+
+        </div>
+
+        <div>
+          <Marquee/>
+        </div>
+
+        <div>
+          <Home />
+        </div>
 
       </div>
     </>
