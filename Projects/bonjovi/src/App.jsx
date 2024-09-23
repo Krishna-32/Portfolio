@@ -10,6 +10,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import Marquee from './modules/Marquee/Marquee';
 import About from './modules/About';
 import Coming from './modules/Coming';
+import Footer from './modules/Footer';
 
 
 function App() {
@@ -78,6 +79,10 @@ function App() {
           <Coming title='these days' img={<Com1/>}/>
           <Coming title='crush' img={<Com2/>}/>
           <Coming title='bounce' img={<Com3/>}/>
+        </div>
+
+        <div>
+          <Footer/>
         </div>
 
       </div>
