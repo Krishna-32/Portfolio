@@ -3,10 +3,10 @@ import Arrow from "../components/Arrow";
 
 function About(props) {
   return (
-    <div className="w-full overflow-hidden cursor-pointer border-b-gray-600 border-b-[1px] group relative">
+    <div className="w-full overflow-hidden cursor-pointer border-b-[1px] border-gray-600 group relative">
       {/* Background transition */}
       <div className="absolute inset-0 bg-blackk transition-transform duration-300 group-hover:-translate-y-full z-0"></div>
-      <div className="absolute inset-0 bg-white transition-transform duration-300 translate-y-full group-hover:translate-y-0 z-0"></div>
+      <div className="absolute -inset-1 bg-white transition-transform duration-300 translate-y-full group-hover:translate-y-0 z-0"></div>
 
       <div className="-my-8 text-white relative z-10">
         <div className="flex justify-between px-4 items-center">

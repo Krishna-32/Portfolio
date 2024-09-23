@@ -5,7 +5,7 @@ import gsap from "gsap";
 function Marquee() {
   useEffect(() => {
     gsap.to('.marquee', {
-      x: 95,
+      x: -616,
       duration: 4,
       repeat: -1,
       ease: 'none',

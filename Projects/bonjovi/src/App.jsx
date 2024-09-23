@@ -5,9 +5,11 @@ import { Bon1, Bon2, Bon3, Bon4 } from './Images/Bon Jovi';
 import { Fah1, Fah2, Fah3, Fah4, Fah5 } from './Images/Fahrenheit';
 import { Slip1, Slip2, Slip3, Slip4 } from './Images/Slippery';
 import { Abt1,Abt2, Abt3, Abt4, Abt5 } from './Images/About';
+import { Com1, Com2, Com3 } from './Images/Coming';
 import LocomotiveScroll from "locomotive-scroll";
 import Marquee from './modules/Marquee/Marquee';
 import About from './modules/About';
+import Coming from './modules/Coming';
 
 
 function App() {
@@ -70,6 +72,12 @@ function App() {
           <About title='bon jovi' date='1983 - 1985' img={<Abt3/>}/>
           <About title='7800° Fahrenheit' date='1985 - 1986' img={<Abt4/>}/>
           <About title='slippery when wet' date='1986 - 1988' img={<Abt5/>}/>
+        </div>
+
+        <div>
+          <Coming title='these days' img={<Com1/>}/>
+          <Coming title='crush' img={<Com2/>}/>
+          <Coming title='bounce' img={<Com3/>}/>
         </div>
 
       </div>
