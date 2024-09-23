@@ -47,7 +47,7 @@ function Footer() {
           © Bon Jovi 2024
         </span>
 
-        <div className="relative overflow-hidden group">
+        <div className="relative overflow-hidden group cursor-pointer">
           <span className="font-formulab text-[8vw] text-whitee uppercase block transition-transform duration-300 group-hover:-translate-y-full relative z-10">
             visit backstage shop
           </span>
@@ -56,7 +56,7 @@ function Footer() {
           </span>
         </div>
 
-        <div className="relative overflow-hidden group">
+        <div className="relative overflow-hidden group cursor-pointer">
           <span className="text-white text-[7vw] block transition-transform duration-300 group-hover:translate-x-full relative z-10">
             <Arrow />
           </span>
