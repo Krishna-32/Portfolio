@@ -1,5 +1,6 @@
 // Navbar.js
 import React from 'react';
+import AnimatedText from './AnimatedText';
 
 function Navbar({ className }) {
   return (<>
@@ -10,7 +11,7 @@ function Navbar({ className }) {
                 return <span
                 className='cursor-pointer'
                 key={idx}>
-                    {itm}
+                    {idx == 1 ? <span className='cursor-default'>|</span> : <AnimatedText text={itm} />}
                 </span>
             })}
         </div>
@@ -19,7 +20,7 @@ function Navbar({ className }) {
         <div className='right flex gap-6 items-center'>
             {['about', 'search', 'newsletter', 'sign in', 'shop'].map((itm, idx)=>{
                 return <span key={idx} className={`${idx == 4 && 'bg-whitee text-blackk rounded-sm w-12 text-center'} cursor-pointer`}>
-                    {itm} 
+                    <AnimatedText text={itm} />
                 </span>
             })}
             <div className='cursor-pointer'>

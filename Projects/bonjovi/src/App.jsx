@@ -17,9 +17,13 @@ function App() {
 
   const locomotiveScroll = new LocomotiveScroll();
 
+  const handleContextMenu = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <>
-      <div className='wrapper overflow-x-hidden'>
+      <div onContextMenu={handleContextMenu} className='wrapper overflow-x-hidden'>
         <Navbar className="fixed z-[99] w-full top-0" />
         <div>
           <Home />

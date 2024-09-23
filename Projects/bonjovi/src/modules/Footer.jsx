@@ -1,5 +1,6 @@
 import React from "react";
 import Arrow from "../components/Arrow";
+import AnimatedText from "../components/AnimatedText";
 
 function Footer() {
   return (
@@ -15,28 +16,28 @@ function Footer() {
 
         <div className="w-4/5 flex gap-10 justify-between font-founder text-whitee uppercase text-[.9vw]">
           <div className="flex flex-col w-1/4 pt-4">
-            <span>Exhibits</span>
-            <span>Studio</span>
-            <span>The Road</span>
-            <span>Office</span>
+            <AnimatedText text="Exhibits" />
+            <AnimatedText text="Studio" />
+            <AnimatedText text="The Road" />
+            <AnimatedText text="Office" />
           </div>
           <div className="flex flex-col w-1/4 pt-4">
-            <span>About</span>
-            <span>Search</span>
-            <span>Shop</span>
-            <span>Sign in</span>
+            <AnimatedText text="About" />
+            <AnimatedText text="Search" />
+            <AnimatedText text="Shop" />
+            <AnimatedText text="Sign in" />
           </div>
           <div className="flex flex-col w-1/4 pt-4">
-            <span>Bon Jovi Official</span>
-            <span>Newsletter</span>
-            <span>Privacy</span>
-            <span>Terms</span>
+            <AnimatedText text="Bon Jovi Official" />
+            <AnimatedText text="Newsletter" />
+            <AnimatedText text="Privacy" />
+            <AnimatedText text="Terms" />
           </div>
           <div className="flex flex-col w-1/4 pt-4">
             <span>Site by</span>
-            <span>Krishna</span>
+            <AnimatedText text="Krishna" />
             <span>Powered by</span>
-            <span>Krishna</span>
+            <AnimatedText text="Krishna" />
           </div>
         </div>
       </div>
@@ -46,9 +47,23 @@ function Footer() {
           © Bon Jovi 2024
         </span>
 
-        <span>visit backstage shop</span>
+        <div className="relative overflow-hidden group">
+          <span className="font-formulab text-[8vw] text-whitee uppercase block transition-transform duration-300 group-hover:-translate-y-full relative z-10">
+            visit backstage shop
+          </span>
+          <span className="font-formulab text-[8vw] text-whitee uppercase block absolute inset-0 transition-transform duration-300 translate-y-full group-hover:translate-y-0">
+            visit backstage shop
+          </span>
+        </div>
 
-        <Arrow />
+        <div className="relative overflow-hidden group">
+          <span className="text-white text-[7vw] block transition-transform duration-300 group-hover:translate-x-full relative z-10">
+            <Arrow />
+          </span>
+          <span className="text-white text-[7vw] block absolute inset-0 transition-transform duration-300 -translate-x-full group-hover:translate-x-0">
+            <Arrow />
+          </span>
+        </div>
       </div>
     </div>
   );
