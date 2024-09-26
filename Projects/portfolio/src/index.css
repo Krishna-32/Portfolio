@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,::after,::before{
+ overflow-x: hidden;
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+/* Apply to all elements */
+* {
+ -ms-overflow-style: none;  /* IE and Edge */
+ scrollbar-width: none;  /* Firefox */
+}
+
+/* Apply to all elements for WebKit browsers */
+*::-webkit-scrollbar {
+ display: none;  /* Chrome, Safari and Opera */
+}
+
+@font-face {
+ font-family: "halyard";
+ src: url("/Font/halyard.otf") format("opentype");
+}
+
+@font-face {
+ font-family: "seasonr";
+ src: url("/Font/The Seasons Font/season2.ttf") format("truetype");
+}
+
+@font-face {
+ font-family: "seasonb";
+ src: url("/Font/The Seasons Font/season.ttf") format("truetype");
+}
+
