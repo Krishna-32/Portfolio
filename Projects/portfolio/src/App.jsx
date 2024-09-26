@@ -9,8 +9,8 @@ function App() {
   const locomotiveScroll = new LocomotiveScroll();
 
   return (
-    <div className='bg-blackk h-full w-full'>
-      <div>
+    <div className='bg-blackk h-full w-full relative'>
+      <div className='fixed z-50 w-full'>
         <Navbar />
       </div>
 
