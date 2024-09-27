@@ -28,7 +28,7 @@ function Hero() {
               start: 'top top',
               end: 'bottom top',
               scrub: 1,
-              markers: true,
+              markers: false,
             },
           })
 
@@ -45,7 +45,7 @@ function Hero() {
               start: 'top top',
               end: 'bottom top',
               scrub: 1,
-              markers: true,
+              markers: false,
             },
           })
         }
