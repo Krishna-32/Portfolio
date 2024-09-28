@@ -16,7 +16,7 @@ function InnerDiv(props) {
       opacity: 1,
       scale: 1,
       y: diff,
-      x: dets.clientX - 800 ,
+      x: `${dets.clientX / window.innerWidth * 100 - 55}vw`,
       ease: "power",
       rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5)
     });
