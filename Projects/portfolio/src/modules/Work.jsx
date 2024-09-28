@@ -25,12 +25,12 @@ function Work() {
 
   return (
     <div ref={containerRef} className='lg:my-20'>
-        <InnerDiv idx='01' title='Gucci clone' />
-        <InnerDiv idx='02' title='Bonjovi' />
-        <InnerDiv idx='03' title='Gucci clone' />
-        <InnerDiv idx='04' title='Bonjovi' />        
-        <InnerDiv idx='05' title='Gucci clone' />
-        <InnerDiv idx='06' title='Bonjovi' />        
+        <InnerDiv idx='01' title='Gucci clone' img='./img/1.jpg' />
+        <InnerDiv idx='02' title='Bonjovi' img='./img/2.jpg'/>
+        <InnerDiv idx='03' title='Gucci clone' img='./img/1.jpg'/>
+        <InnerDiv idx='04' title='Bonjovi' img='./img/2.jpg'/>        
+        <InnerDiv idx='05' title='Gucci clone' img='./img/1.jpg'/>
+        <InnerDiv idx='06' title='Bonjovi' img='./img/2.jpg'/>        
     </div>
   )
 }

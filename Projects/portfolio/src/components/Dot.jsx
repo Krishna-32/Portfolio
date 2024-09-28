@@ -37,7 +37,7 @@ function Dot() {
 
   return (
     <div 
-      className="fixed w-3 h-3 bg-white rounded-full translate-y-2 "
+      className="fixed w-3 h-3 bg-white rounded-full"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
