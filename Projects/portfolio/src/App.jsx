@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className='bg-blackk h-full w-full lg:cursor-none relative'>
-      <div className='absolute hidden lg:block'>
+      <div className='hidden lg:block z-[99]'>
         <Dot />
       </div>
       <div className='fixed z-50 w-full'>
