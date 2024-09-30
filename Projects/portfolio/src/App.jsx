@@ -4,6 +4,7 @@ import Hero from './modules/Hero'
 import Work from './modules/Work'
 import LocomotiveScroll from "locomotive-scroll";
 import Dot from './components/Dot';
+import About from './modules/About';
 
 function App() {
 
@@ -24,6 +25,11 @@ function App() {
 
       <div>
         <Work />
+      </div>
+
+      <div>
+        <About />
+        <About />
       </div>
     </div>
   )

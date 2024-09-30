@@ -24,7 +24,7 @@ function Work() {
   }, [containerRef]);
 
   return (
-    <div ref={containerRef} className='lg:my-20'>
+    <div ref={containerRef} className='mt-[10vmax] mb-[20vmax]'>
         <InnerDiv idx='01' title='Gucci clone' img='./img/1.jpg' />
         <InnerDiv idx='02' title='Bonjovi' img='./img/2.jpg'/>
         <InnerDiv idx='03' title='Gucci clone' img='./img/1.jpg'/>
