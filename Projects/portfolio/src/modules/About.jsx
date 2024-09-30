@@ -10,27 +10,65 @@ function About() {
   const secondRef = useRef(null);
 
   useEffect(() => {
+    const mm = gsap.matchMedia();
     const ctx = gsap.context(() => {
-      gsap.to(firstRef.current, {
-        y: "-12vh",
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: 1,
-          markers: true,
-        },
-      });
+      mm.add({
+        isMobile: "(max-width: 1023px)",
+        isDesktop: "(min-width: 1024px)"
+      }, (context) => {
+        let { isMobile, isDesktop } = context.conditions;
 
-      gsap.to(secondRef.current, {
-        y: "-8vh",
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: "top bottom",
-          end: "bottom bottom",
-          scrub: 1,
-          markers: true,
-        },
+        if (isMobile) {
+          gsap.to(firstRef.current, {
+            y: "-12vmax",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 1,
+              ease: "linear",
+              markers: true,
+            },
+          });
+
+          gsap.to(secondRef.current, {
+            y: "-8vmax",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 1,
+              ease: "linear",
+              markers: true,
+            },
+          });
+        }
+
+        if (isDesktop) {
+          gsap.to(firstRef.current, {
+            y: "-18vmax",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 1,
+              ease: "linear",
+              markers: true,
+            },
+          });
+
+          gsap.to(secondRef.current, {
+            y: "-12vmax",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top bottom",
+              end: "bottom bottom",
+              scrub: 1,
+              ease: "linear",
+              markers: true,
+            },
+          });
+        }
       });
     }, wrapperRef);
 
@@ -40,16 +78,16 @@ function About() {
   return (
     <div
       ref={wrapperRef}
-      className="wrapper h-screen flex flex-col justify-center items-center my-40 overflow-visible"
+      className="wrapper h-full flex flex-col justify-center items-center my-40 overflow-visible"
     >
       <div ref={firstRef} className="first overflow-visible">
-        <span className="uppercase font-seasonr text-whitee text-[9vmax]">
+        <span className="uppercase font-seasonr text-whitee text-[9vmax] lg:text-[30vh]">
           Hello!
         </span>
       </div>
 
       <div ref={secondRef} className="second text-center overflow-visible">
-        <span className="uppercase font-seasonb text-whitee text-[4vmax] leading-[40px]">
+        <span className="uppercase font-seasonb text-whitee text-[4vmax] leading-[40px] lg:leading-[70px]">
           I'm a Junior lvl
           <br />
           Designer
@@ -57,7 +95,7 @@ function About() {
           Ready to work
         </span>
       </div>
-      <div className="third flex flex-col gap-10 text-center px-4 text-whitee font-halyard overflow-visible">
+      <div className="third flex flex-col items-center justify-center lg:w-2/3 lg:text-[2.5vw] lg:font-extralight gap-10 text-center px-4 text-whitee font-halyard overflow-visible">
         <p>
           Hey there! I'm a passionate design student at Georgian@ilac, set to graduate in 2025. My focus is on creating visually impactful yet beautifully simple designs. Toronto is where I call home, and it's here that I've been honing my skills in graphic design while also diving into the world of React development.
         </p>

@@ -56,8 +56,29 @@ function Hero() {
             duration: 1,
             ease: 'sine.inOut',
           });
+          
         }
-      });
+      })
+      gsap.to('.first, .third', {
+        x: '10vw',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+          markers: false,
+        },
+      })
+      gsap.to('.second', {
+        x: '28vw',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1,
+          markers: false,
+        },
+      })
     }, containerRef);
 
     return () => ctx.revert(); // Cleanup on unmount
