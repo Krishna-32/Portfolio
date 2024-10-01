@@ -6,34 +6,39 @@ import LocomotiveScroll from "locomotive-scroll";
 import Dot from './components/Dot';
 import About from './modules/About';
 import SvgAnimation from './modules/SvgAnimation';
-
+import Footer from './modules/Footer';
 function App() {
 
   const locomotiveScroll = new LocomotiveScroll();
 
   return (
     <div className='bg-blackk h-full w-full lg:cursor-none relative'>
-      <div className='hidden lg:block z-[99]'>
-        <Dot />
-      </div>
       <div className='fixed z-50 w-full'>
         <Navbar />
       </div>
 
-      <div>
+      <div id='hero-section'>
         <Hero />
       </div>
 
-      <div>
+      <div id='work-section'>
         <Work />
       </div>
 
-      <div>
+      <div id='about-section'>
         <About />
       </div>
 
       <div>
         <SvgAnimation />
+      </div>
+
+      <div>
+        <Footer />
+      </div>
+
+      <div className='hidden lg:block fixed inset-0 pointer-events-none z-[9999]'>
+        <Dot />
       </div>
     </div>
   )

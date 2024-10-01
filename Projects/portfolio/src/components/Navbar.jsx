@@ -1,18 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-scroll'
 
 function Navbar() {
+  const [logoSrc, setLogoSrc] = useState('/logo.svg')
+
   return (
     <div className='wrapper h-full w-full py-2 px-4 lg:px-12   '>
       <div className='flex justify-between items-center text-whitee font-halyard lg:text-[1.5vw] uppercase'>
-        <span className='overflow-hidden cursor-none'>
+        <Link 
+          to="work-section"
+          smooth={true}
+          duration={1000}
+          delay={200}
+          className='overflow-hidden hover:text-greyy transition-colors'
+        >
           work
-        </span>
+        </Link>
 
-        <img className='w-10 cursor-none' src="/logo.svg" alt="" />
+        <Link
+          to="hero-section"
+          smooth={true}
+          duration={1000}
+          delay={200}
+        >
+          <img 
+            className='w-10' 
+            src={logoSrc} 
+            alt="Logo" 
+            onMouseEnter={() => setLogoSrc('/logo_g.svg')}
+            onMouseLeave={() => setLogoSrc('/logo.svg')}
+          />
+        </Link>
 
-        <span className='overflow-hidden cursor-none'>
+        <Link 
+          to="about-section"
+          smooth={true}
+          duration={1000}
+          delay={200}
+          className='overflow-hidden hover:text-greyy transition-colors'
+        >
           about
-        </span>
+        </Link>
       </div>
     </div>
   )

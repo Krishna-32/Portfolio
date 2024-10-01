@@ -43,7 +43,7 @@ function SvgAnimation() {
   }, [mousePosition]);
 
   return (
-    <div className="w-full h-auto mb-40">
+    <div className="w-full h-auto mt-[10vw]">
       <svg
         viewBox="0 -30 200 60"
         className="w-full h-auto"

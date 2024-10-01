@@ -20,6 +20,15 @@
  display: none;  /* Chrome, Safari and Opera */
 }
 
+*::selection {
+ color: #d5d4d3;
+ background-color: #353535;
+}
+
+body{
+ background-color: #1e1e1c;
+}
+
 @font-face {
  font-family: "halyard";
  src: url("/Font/halyard.otf") format("opentype");

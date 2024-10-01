@@ -78,7 +78,7 @@ function About() {
   return (
     <div
       ref={wrapperRef}
-      className="wrapper h-full flex flex-col justify-center items-center my-40 overflow-visible"
+      className="wrapper h-full flex flex-col justify-center items-center mt-40 overflow-visible"
     >
       <div ref={firstRef} className="first overflow-visible">
         <span className="uppercase font-seasonr text-whitee text-[9vmax] lg:text-[30vh]">
