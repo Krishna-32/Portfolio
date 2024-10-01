@@ -27,7 +27,7 @@ function About() {
               end: "bottom bottom",
               scrub: 1,
               ease: "linear",
-              markers: true,
+              markers: false,
             },
           });
 
@@ -39,7 +39,7 @@ function About() {
               end: "bottom bottom",
               scrub: 1,
               ease: "linear",
-              markers: true,
+              markers: false,
             },
           });
         }
@@ -53,7 +53,7 @@ function About() {
               end: "bottom bottom",
               scrub: 1,
               ease: "linear",
-              markers: true,
+              markers: false,
             },
           });
 
@@ -65,7 +65,7 @@ function About() {
               end: "bottom bottom",
               scrub: 1,
               ease: "linear",
-              markers: true,
+              markers: false,
             },
           });
         }

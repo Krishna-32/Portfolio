@@ -39,7 +39,7 @@ function Dot() {
     <div 
       className="fixed w-3 h-3 bg-white rounded-full"
       style={{
-        left: `${position.x}px`,
+        left: `${position.x + 15}px`,
         top: `${position.y}px`,
         transform: `scale(${scale.x}, ${scale.y})`,
       }}

@@ -5,6 +5,7 @@ import Work from './modules/Work'
 import LocomotiveScroll from "locomotive-scroll";
 import Dot from './components/Dot';
 import About from './modules/About';
+import SvgAnimation from './modules/SvgAnimation';
 
 function App() {
 
@@ -29,7 +30,10 @@ function App() {
 
       <div>
         <About />
-        <About />
+      </div>
+
+      <div>
+        <SvgAnimation />
       </div>
     </div>
   )
