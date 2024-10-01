@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { gsap } from 'gsap';
 
-
 function Dot() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [scale, setScale] = useState({ x: 1, y: 1 });
   const [prev, setPrev] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const updatePosition = (dets) => {
       setPosition({ x: dets.clientX, y: dets.clientY });
+      setIsVisible(true);
 
       setPrev((prev) => {
         var xdiff = dets.clientX - prev.x;
@@ -23,17 +24,26 @@ function Dot() {
           setScale({ x: 1, y: 1 });
         }, 100); 
 
-        // console.log(clampedXDiff, clampedYDiff);
-        return { x: dets.clientX, y: dets.clientY }; // Update prev position
+        return { x: dets.clientX, y: dets.clientY };
       });
     };
 
+    const hideDot = () => {
+      setIsVisible(false);
+    };
+
     window.addEventListener('mousemove', updatePosition);
+    window.addEventListener('mouseout', hideDot);
 
     return () => {
       window.removeEventListener('mousemove', updatePosition);
+      window.removeEventListener('mouseout', hideDot);
     };
   }, []);
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div 

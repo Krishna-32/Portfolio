@@ -97,13 +97,13 @@ function Footer() {
       className="wrapper relative h-full lg:h-screen flex flex-col justify-center items-center mt-10 lg:mt-40 overflow-visible"
     >
       <div ref={firstRef} className="first overflow-visible">
-        <span className="uppercase font-seasonr text-whitee tracking-tighter text-[9.5vmax] lg:text-[30vh]">
+        <span className="uppercase font-seasonr text-whitee tracking-tighter text-[7vmax] lg:text-[30vh]">
           Let's Talk
         </span>
       </div>
 
       <div ref={secondRef} className="second text-center overflow-visible">
-        <span className="uppercase font-seasonb text-whitee text-[4vmax] leading-[40px] lg:leading-[70px]">
+        <span className="uppercase font-seasonb text-whitee text-[3.2vmax] lg:text-[4vw] leading-[30px] lg:leading-[70px]">
           <span className="block hover:text-greyy transition-colors" onClick={handleEmailClick}>
             Email
           </span>
