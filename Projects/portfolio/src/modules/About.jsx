@@ -97,7 +97,7 @@ function About() {
       </div>
       <div className="third flex flex-col items-center justify-center lg:w-2/3 lg:text-[2.5vw] lg:font-extralight gap-10 text-center px-4 text-whitee font-halyard overflow-visible">
         <p>
-          Hey there! I'm a passionate design student at Georgian@ilac, set to graduate in 2025. My focus is on creating visually impactful yet beautifully simple designs. Toronto is where I call home, and it's here that I've been honing my skills in graphic design while also diving into the world of React development.
+          Hey there! I'm Krishna, a passionate design student at Georgian@ilac, set to graduate in 2025. My focus is on creating visually impactful yet beautifully simple designs. Toronto is where I call home, and it's here that I've been honing my skills in graphic design while also diving into the world of React development.
         </p>
         <p>
           What really drives me is the challenge of blending creative concepts with technical solutions. I love taking complex ideas and transforming them into clean, intuitive designs that resonate with people. It's like solving an intricate puzzle, but with the added thrill of creating something visually stunning.

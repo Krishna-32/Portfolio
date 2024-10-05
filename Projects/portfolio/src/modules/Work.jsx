@@ -28,9 +28,9 @@ function Work() {
         <InnerDiv idx='01' title='Gucci clone' img='./img/gucci.png' link='https://gucci-clone.vercel.app/' />
         <InnerDiv idx='02' title='Bonjovi' img='./img/bonjovi.png' link='https://bonjovi-bay.vercel.app/' />
         <InnerDiv idx='03' title='Old Portfolio' img='./img/pf.png' link='https://portfolio-blond-one-14.vercel.app/'/>
-        <InnerDiv idx='04' title='Bonjovi' img='./img/2.jpg'/>        
-        <InnerDiv idx='05' title='Gucci clone' img='./img/1.jpg'/>
-        <InnerDiv idx='06' title='Bonjovi' img='./img/2.jpg'/>        
+        <InnerDiv idx='04' title='Gucci clone' img='./img/gucci.png' link='https://gucci-clone.vercel.app/' />
+        <InnerDiv idx='05' title='Bonjovi' img='./img/bonjovi.png' link='https://bonjovi-bay.vercel.app/' />
+        <InnerDiv idx='06' title='Old Portfolio' img='./img/pf.png' link='https://portfolio-blond-one-14.vercel.app/'/>        
     </div>
   )
 }
