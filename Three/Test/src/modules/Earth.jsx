@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-function Box() {
+function Earth() {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -14,25 +14,17 @@ function Box() {
     );
     camera.position.z = 5;
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({
-      color: "green",
-      // wireframe: true,
-    });
+    const geometry = new THREE.SphereGeometry(1, 100, 100);
+    const material = new THREE.MeshBasicMaterial({color : 'beige'});
     const mesh = new THREE.Mesh(geometry, material);
+
     scene.add(mesh);
 
     const canvas = canvasRef.current;
     const renderer = new THREE.WebGLRenderer({ canvas });
     renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-      mesh.rotation.x += 0.01;
-      renderer.render(scene, camera);
-    };
-
-    animate();
+    
+    renderer.render(scene, camera)
 
     return () => {
       renderer.dispose();
@@ -46,4 +38,4 @@ function Box() {
   );
 }
 
-export default Box;
+export default Earth;
