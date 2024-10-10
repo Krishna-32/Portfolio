@@ -9,6 +9,7 @@ function App() {
       {/* <Box/> */}
       {/* <Earth /> */}
       <LilGui />
+
     </div>
   )
 }
