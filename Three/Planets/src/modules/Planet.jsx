@@ -72,7 +72,7 @@ function Planet() {
     duration: 2,
     ease: 'easeInOut'
    })
-  }, 2000)
+  }, 2500)
 
   const controls = new OrbitControls(camera, renderer.domElement);
 
