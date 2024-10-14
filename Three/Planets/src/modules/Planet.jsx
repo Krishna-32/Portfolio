@@ -29,28 +29,39 @@ function Planet() {
    renderer.setSize(window.innerWidth, window.innerHeight)
   })
 
-  const textureLoader = new THREE.TextureLoader()
-  const texture = textureLoader.load('./earth/earth.jpeg')
-  texture.colorSpace = THREE.SRGBColorSpace
-
-  const planets = []; //for rotation purpose
+  const textureLoader = new THREE.TextureLoader();
+  const planets = []; // For rotation purpose
   const radius = 1.3;
   const segments = 100;
   const orbitRadius = 4.5;
-  const group = new THREE.Group(); //for grouping
+  const group = new THREE.Group(); // For grouping
+  const textures = ['./jupiter.jpg', './earth/earth.jpeg', './mars.jpg', './neptune.jpg'];
 
-  for (let i=0; i<5; i++){
-   const geometry = new THREE.SphereGeometry(radius,segments,segments);
-   const material = new THREE.MeshPhysicalMaterial({map: texture});
-   const sphere = new THREE.Mesh(geometry, material)
+  const starText = textureLoader.load('./stars.jpg')
+  starText.colorSpace = THREE.SRGBColorSpace;
+  const starGeo = new THREE.SphereGeometry(10, 64, 64)
+  const starMat = new THREE.MeshBasicMaterial({
+    map: starText,
+    side: THREE.BackSide,
+  })
+  const starMesh = new THREE.Mesh(starGeo, starMat)
+  scene.add(starMesh)
 
-   const angle = (i/4) * (Math.PI * 2)
-   sphere.position.x = orbitRadius * Math.cos(angle)
-   sphere.position.z = orbitRadius * Math.sin(angle)
+  for (let i = 0; i < textures.length; i++) {
+    const geometry = new THREE.SphereGeometry(radius, segments, segments);
+    const texture = textureLoader.load(textures[i]); // Load each texture individually
+    texture.colorSpace = THREE.SRGBColorSpace;
+    const material = new THREE.MeshPhysicalMaterial({ map: texture });
+    const sphere = new THREE.Mesh(geometry, material);
 
-   planets.push(sphere) //for rotation
-   group.add(sphere) //for group
+    const angle = (i / textures.length) * (Math.PI * 2); // Angle to position planets around a circle
+    sphere.position.x = orbitRadius * Math.cos(angle);
+    sphere.position.z = orbitRadius * Math.sin(angle);
+
+    planets.push(sphere); // For rotation
+    group.add(sphere); // Add each sphere to the group
   }
+
 
   group.rotation.x = 0.1;
   group.position.y = -0.8;
@@ -66,15 +77,15 @@ function Planet() {
     );
 
   
-  setInterval(()=>{
-   gsap.to(group.rotation, {
-    y: `+=${Math.PI/2}`,
-    duration: 2,
-    ease: 'easeInOut'
-   })
-  }, 2500)
+  // setInterval(()=>{
+  //  gsap.to(group.rotation, {
+  //   y: `+=${Math.PI/2}`,
+  //   duration: 2,
+  //   ease: 'easeInOut'
+  //  })
+  // }, 2500)
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+  // const controls = new OrbitControls(camera, renderer.domElement); //orbital controls
 
   const clock = new THREE.Clock();
   const animate = () => {
@@ -82,7 +93,7 @@ function Planet() {
    planets.forEach(sphere => {
     sphere.rotation.y = clock.getElapsedTime() / 5
    }); //rotate animation
-   controls.update();
+  //  controls.update(); //orbital controls
    renderer.render(scene, camera)
   }
 
