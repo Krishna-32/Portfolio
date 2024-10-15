@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+ -ms-overflow-style: none;  /* IE and Edge */
+ scrollbar-width: none;  /* Firefox */
+}
+
+/* Apply to all elements for WebKit browsers */
+*::-webkit-scrollbar {
+ display: none;  /* Chrome, Safari and Opera */
+}
+
+@font-face {
+ font-family: "bellina";
+ src: url("/fonts/Bellina/Bellina.ttf") format("truetype");
+}
+
+@font-face {
+ font-family: "gilroy";
+ src: url("/fonts/gilroy/Gilroy-Regular.ttf") format("truetype");
+}
