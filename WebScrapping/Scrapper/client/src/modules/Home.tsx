@@ -130,7 +130,7 @@ const Home: React.FC = () => {
         className="absolute bottom-10 text-red-500 text-sm cursor-pointer"
         onClick={handleMiniPlayerToggle} // Toggle the mini-player on click
       >
-        {isMiniPlayerOpen ? "✖" : <u className="text-blue-700">How to use?</u>} {/* Change text based on state */}
+        {isMiniPlayerOpen ? "✖" : <u className="t">How to use?</u>} {/* Change text based on state */}
       </span>
 
       {/* Mini Player for Video */}
