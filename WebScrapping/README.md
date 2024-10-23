@@ -1,1 +1,3 @@
-## LinkedIn Job Details Extractor
+# LinkedIn Job Details Extractor
+
+## How to setup - 
