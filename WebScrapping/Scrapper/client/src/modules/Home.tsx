@@ -4,7 +4,7 @@ import Loader from "../components/Loader";
 // Function to post the URL to the Flask backend
 const postJobUrl = async (url: string) => {
   try {
-    const response = await fetch("http://localhost:5000/", {
+    const response = await fetch("https://server-vtri.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
