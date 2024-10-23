@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Loader from "../components/Loader";
 
-// Function to post the URL to the Flask backend
-const postJobUrl = async (url: string) => {
+// Function to post the URL to the Flask backend and handle the file download
+const postJobUrlAndDownloadFile = async (url: string) => {
   try {
     const response = await fetch("http://127.0.0.1:5000/", {
       method: "POST",
@@ -17,30 +17,36 @@ const postJobUrl = async (url: string) => {
       throw new Error(errorData.error || "Something went wrong");
     }
 
-    const data = await response.json();
-    return data; // Return the response data
+    // Get the file blob from the response
+    const blob = await response.blob();
+    // Create a download URL from the blob
+    const downloadUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+    a.download = "job_details.docx"; // Set the file name for download
+    document.body.appendChild(a);
+    a.click(); // Trigger the download
+    a.remove(); // Clean up the link after downloading
+    window.URL.revokeObjectURL(downloadUrl); // Clean up the blob URL
   } catch (error) {
     console.error("Error posting URL:", error);
     if (error instanceof Error) {
-      return { error: error.message }; // Safe to access message
+      return { error: error.message }; // Return error message if available
     }
-    return { error: "An unknown error occurred." }; // Fallback for other types of errors
+    return { error: "An unknown error occurred." };
   }
 };
 
 const Home: React.FC = () => {
   const [url, setUrl] = useState(""); // State to store the input URL
   const [error, setError] = useState<string | null>(null); // State to store validation error
-  const [successMessage, setSuccessMessage] = useState<string | null>(null); // State for success message
   const [loading, setLoading] = useState(false); // State for loading indicator
-  const [result, setResult] = useState<any>(null); // State to store the API response
   const [isMiniPlayerOpen, setIsMiniPlayerOpen] = useState(false); // State for mini-player visibility
 
   // Function to handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUrl(e.target.value);
     setError(null); // Clear error when typing
-    setSuccessMessage(null); // Clear success message when typing
   };
 
   // Function to handle the click event of the 'Generate' button
@@ -52,18 +58,9 @@ const Home: React.FC = () => {
       setError("Please enter a valid LinkedIn job URL."); // Validation: Must be a LinkedIn job URL
     } else {
       setLoading(true); // Start loading
-      const apiResult = await postJobUrl(url); // Post URL and await response
+      setError(null); // Clear any previous errors
+      await postJobUrlAndDownloadFile(url); // Post URL and trigger file download
       setLoading(false); // End loading
-
-      if (apiResult.error) {
-        setError(apiResult.error); // Display error if it exists
-        setSuccessMessage(null); // Clear success message
-        setResult(null); // Clear result on error
-      } else {
-        setSuccessMessage(apiResult.message); // Set success message from response
-        setResult(apiResult); // Store the API response
-        setError(null); // Clear error message
-      }
     }
   };
 
@@ -93,37 +90,14 @@ const Home: React.FC = () => {
         <button
           className="bg-[#c8322d] rounded-full h-[2rem] md:h-[3rem] w-[8rem] md:w-[15rem] text-md md:text-xl"
           onClick={handleGenerate} // Handle button click
+          disabled={loading} // Disable button while loading
         >
-          Generate
+          {loading ? "Generating..." : "Generate"}
         </button>
 
-        {/* Conditional Rendering for Loading, Error, and Success Messages */}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <span className="text-red-500">{error}</span>
-        ) : successMessage ? (
-          <div className="flex flex-col gap-4 items-center">
-            <span className="text-green-500">{successMessage}</span>
-            <div className="flex flex-col gap-2 items-center">
-              {result && (
-                <span className="text-gray-500 text-sm">
-                  Company: {result.company_name}
-                </span>
-              )}
-              {result && (
-                <span className="text-gray-500 text-sm">
-                  Job: {result.job_title}
-                </span>
-              )}
-              {result && (
-                <span className="text-gray-500 text-sm">
-                  Location: {result.location}
-                </span>
-              )}
-            </div>
-          </div>
-        ) : null}
+        {/* Conditional Rendering for Error Messages */}
+        {error && <span className="text-red-500">{error}</span>}
+        {loading && <Loader />}
       </div>
 
       <span
