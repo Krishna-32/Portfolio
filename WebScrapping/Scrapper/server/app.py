@@ -1,21 +1,15 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import os
 import re
 import requests
 from bs4 import BeautifulSoup
 from docx import Document
-from pathlib import Path
+from io import BytesIO
 import time
 
 app = Flask(__name__)
 CORS(app)
-
-# Function to get downloads folder path
-def get_downloads_folder():
-    home = str(Path.home())  # Get the home directory
-    downloads_path = os.path.join(home, 'Downloads')  # Append 'Downloads' to home directory
-    return downloads_path
 
 # Function to validate LinkedIn job URL
 def is_valid_linkedin_url(url):
@@ -71,51 +65,34 @@ def add_job():
         company_name = company_link.get_text(strip=True) if company_link else "N/A"
         location = location_span.get_text(strip=True) if location_span else "N/A"
 
-        downloads_folder = get_downloads_folder()
-        file_name = os.path.join(downloads_folder, 'job_details.docx')  # Save in Downloads folder
+        # Create document in memory
+        document = Document()
+        table = document.add_table(rows=1, cols=2)
+        row_cells = table.add_row().cells
+        row_cells[0].text = f"{company_name}, {location}"
+        row_cells[1].text = job_title
 
-        try:
-            if os.path.exists(file_name):
-                # Try to open the document to update it
-                try:
-                    document = Document(file_name)
-                    table = document.tables[0]
-                    row_cells = table.add_row().cells
-                    row_cells[0].text = company_name + ", " + location
-                    row_cells[1].text = job_title
-                    document.save(file_name)
-                except PermissionError:
-                    return jsonify({"error": "Please close the file to continue updating."}), 400  # File is open
-            else:
-                # Create a new document
-                document = Document()
-                table = document.add_table(rows=1, cols=2)
-                row_cells = table.add_row().cells
-                row_cells[0].text = company_name + ", " + location
-                row_cells[1].text = job_title
-                document.save(file_name)
+        # Use a BytesIO buffer to create an in-memory file
+        file_stream = BytesIO()
+        document.save(file_stream)
+        file_stream.seek(0)
 
-            return jsonify({
-                "message": "Job details added successfully",
-                "file_path": file_name,
-                "job_title": job_title,
-                "company_name": company_name,
-                "location": location
-            }), 200
-
-        except Exception as e:
-            return jsonify({"error": str(e)}), 500
+        # Provide the file as a download
+        return send_file(
+            file_stream,
+            as_attachment=True,
+            download_name="job_details.docx",  # The file will be named "job_details.docx"
+            mimetype='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        )
 
     elif response:
         return jsonify({"error": f"Failed to retrieve page. Status code: {response.status_code}"}), 400
     else:
         return jsonify({"error": "Failed to retrieve page after multiple retries. Try Again."}), 500
 
-
 @app.route('/')
-def a():
-    return render_template('index.html')
-
+def home():
+    return 'LinkedIn Job Details Extractor Running'
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
