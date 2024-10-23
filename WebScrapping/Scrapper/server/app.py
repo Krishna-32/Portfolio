@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import os
 import re
 import requests
 from bs4 import BeautifulSoup
 from docx import Document
-from io import BytesIO
+from pathlib import Path
 import time
 
 app = Flask(__name__)
@@ -40,6 +40,7 @@ def fetch_job_details_with_retry(url, headers, max_retries=5, delay=2):
 def add_job():
     data = request.json
     url = data.get('url')
+    file_name = data.get('file_name', 'job_details.docx')  # Default file name if not provided
 
     if not url:
         return jsonify({"error": "URL is required"}), 400
@@ -65,34 +66,39 @@ def add_job():
         company_name = company_link.get_text(strip=True) if company_link else "N/A"
         location = location_span.get_text(strip=True) if location_span else "N/A"
 
-        # Create document in memory
-        document = Document()
-        table = document.add_table(rows=1, cols=2)
-        row_cells = table.add_row().cells
-        row_cells[0].text = f"{company_name}, {location}"
-        row_cells[1].text = job_title
+        # Save in the same directory as the Flask app for easier access
+        file_path = os.path.join(os.getcwd(), file_name)
 
-        # Use a BytesIO buffer to create an in-memory file
-        file_stream = BytesIO()
-        document.save(file_stream)
-        file_stream.seek(0)
+        try:
+            # Create a new document
+            document = Document()
+            table = document.add_table(rows=1, cols=2)
+            row_cells = table.rows[0].cells
+            row_cells[0].text = f"{company_name}, {location}"
+            row_cells[1].text = job_title
+            document.save(file_path)
 
-        # Provide the file as a download
-        return send_file(
-            file_stream,
-            as_attachment=True,
-            download_name="job_details.docx",  # The file will be named "job_details.docx"
-            mimetype='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-        )
+            return jsonify({
+                "message": "Job details added successfully",
+                "file_path": file_path,
+                "job_title": job_title,
+                "company_name": company_name,
+                "location": location
+            }), 200
+
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
 
     elif response:
         return jsonify({"error": f"Failed to retrieve page. Status code: {response.status_code}"}), 400
     else:
         return jsonify({"error": "Failed to retrieve page after multiple retries. Try Again."}), 500
 
-@app.route('/')
-def home():
-    return 'LinkedIn Job Details Extractor Running'
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+@app.route('/')
+def a():
+    return render_template('index.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
