@@ -1,0 +1,74 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cardColumn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cardContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  color: #fff;
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 25vw;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.cover {
+  position: fixed;
+  background: #eb5160;
+  z-index: 100;
+  transition: transform 300ms ease-in-out;
+}
+
+.openContent {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms linear;
+}
+
+.openContent.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.closeContent {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+
+.x1, .x2 {
+  background: #222;
+  width: 30px;
+  height: 6px;
+  display: block;
+}
+
+.x1 {
+  transform: rotate(45deg);
+}
+
+.x2 {
+  transform: rotate(-45deg);
+}
