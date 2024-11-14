@@ -6,10 +6,10 @@ import requests
 from bs4 import BeautifulSoup
 from docx import Document
 from pathlib import Path
-import time
+import time 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app) 
 
 # Function to get downloads folder path
 def get_downloads_folder():
@@ -117,5 +117,5 @@ def a():
     return render_template('index.html')
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

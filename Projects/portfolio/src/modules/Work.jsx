@@ -27,10 +27,10 @@ function Work() {
     <div ref={containerRef} className='mt-[10vmax] mb-[20vmax] lg:mb-[10vmax]'>
         <InnerDiv idx='01' title='Gucci clone' img='./img/gucci.png' link='https://gucci-clone.vercel.app/' />
         <InnerDiv idx='02' title='Bonjovi' img='./img/bonjovi.png' link='https://bonjovi-bay.vercel.app/' />
-        <InnerDiv idx='03' title='Old Portfolio' img='./img/pf.png' link='https://portfolio-blond-one-14.vercel.app/'/>
+        <InnerDiv idx='03' title='Scrapper' img='./img/scrapper.png' link='https://github.com/Krishna-32/Linkedin-Scrapper/tree/main'/>
         <InnerDiv idx='04' title='Gucci clone' img='./img/gucci.png' link='https://gucci-clone.vercel.app/' />
         <InnerDiv idx='05' title='Bonjovi' img='./img/bonjovi.png' link='https://bonjovi-bay.vercel.app/' />
-        <InnerDiv idx='06' title='Old Portfolio' img='./img/pf.png' link='https://portfolio-blond-one-14.vercel.app/'/>        
+        <InnerDiv idx='06' title='Scrapper' img='./img/scrapper.png' link='https://github.com/Krishna-32/Linkedin-Scrapper/tree/main8'/>        
     </div>
   )
 }
