@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import Image from 'next/image'; // Import Image component from Next.js
+import React from 'react';
+import Image from 'next/image';
 import styles from './profile.module.css';
+import { useRouter } from 'next/navigation';
 
 // Define types for better TypeScript support
 type ProfileData = {
@@ -20,10 +21,10 @@ type ProfilePageProps = {
 };
 
 const Profile: React.FC<ProfilePageProps> = ({ profile }) => {
-  const [isFollowing, setIsFollowing] = useState(false);
+  const router = useRouter();
 
-  const toggleFollow = () => {
-    setIsFollowing((prevState) => !prevState);
+  const editProfile = () => {
+    router.push('/editprofile');
   };
 
   return (
@@ -47,8 +48,8 @@ const Profile: React.FC<ProfilePageProps> = ({ profile }) => {
             style={{ aspectRatio: '1/1', objectFit: 'cover' }}
           />
         </div>
-        <button onClick={toggleFollow} className={styles.followButton}>
-          {isFollowing ? 'Unfollow' : 'Follow'}
+        <button onClick={editProfile} className={styles.followButton}>
+          Edit
         </button>
         <div className={styles.userProfileData}>
           <h1>{profile.name}</h1>
