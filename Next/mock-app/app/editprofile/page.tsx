@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import axios from 'axios'
 
 function EditProfile() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
@@ -11,11 +12,25 @@ function EditProfile() {
     }
   }
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    if (selectedFile) {
-      // Handle file upload logic here
-      console.log('Uploading file:', selectedFile)
+    
+    if (!selectedFile) return
+
+    try {
+      const filename = selectedFile.name.split('.')[0]
+      const extension = selectedFile.name.split('.').pop() || ''
+
+      const response = await axios.post('/api/images', {
+        image: {
+          name: selectedFile.name,
+          filename,
+          extension
+        }
+      })
+      console.log('Upload successful:', response.data)
+    } catch (error) {
+      console.error('Error uploading file:', error)
     }
   }
 
@@ -24,7 +39,7 @@ function EditProfile() {
       <header className="text-4xl font-light tracking-wider text-gray-700 mb-10">
         UPLOAD PROFILE
       </header>
-      <form onSubmit={handleSubmit} action="/profile" method="post" encType="multipart/form-data" className="w-full max-w-lg bg-white rounded-lg shadow-md p-8">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white rounded-lg shadow-md p-8">
         <div className="mb-6">
           <input
             type="file"
