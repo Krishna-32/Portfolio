@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import connectDB from '@/lib/mongoose'
-import Image from '@/models/images'
+import Image from '@/models/profile'
 
 export async function POST(req: Request) {
   try {
@@ -21,7 +21,10 @@ export async function POST(req: Request) {
     const newImage = await Image.create({
       filename,
       extension,
-      base64
+      base64,
+      name: image.name,
+      username: image.username,
+      description: image.description
     })
 
     return NextResponse.json(
