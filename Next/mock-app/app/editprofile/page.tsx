@@ -2,9 +2,12 @@
 
 import React, { useState } from 'react'
 import axios from 'axios'
+import Image2base64 from '@/app/components/image2base64'
+import { useRouter } from 'next/navigation'
 
 function EditProfile() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const router = useRouter()
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -20,15 +23,18 @@ function EditProfile() {
     try {
       const filename = selectedFile.name.split('.')[0]
       const extension = selectedFile.name.split('.').pop() || ''
+      const base64 = await Image2base64(selectedFile)
 
       const response = await axios.post('/api/images', {
         image: {
           name: selectedFile.name,
           filename,
-          extension
+          extension,
+          base64
         }
       })
       console.log('Upload successful:', response.data)
+      router.push('/profile')
     } catch (error) {
       console.error('Error uploading file:', error)
     }
@@ -52,7 +58,7 @@ function EditProfile() {
               file:bg-blue-50 file:text-blue-700
               hover:file:bg-blue-100
               cursor-pointer"
-            accept="image/*"
+            accept=".jpg, .jpeg, .png"
           />
         </div>
         <button 

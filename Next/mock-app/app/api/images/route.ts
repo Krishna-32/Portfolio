@@ -17,10 +17,11 @@ export async function POST(req: Request) {
 
     const filename = image.name.split('.')[0]
     const extension = image.name.split('.').pop() || ''
-
+    const base64 = image.base64
     const newImage = await Image.create({
       filename,
-      extension
+      extension,
+      base64
     })
 
     return NextResponse.json(

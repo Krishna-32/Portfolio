@@ -8,6 +8,10 @@ const imageSchema = new mongoose.Schema({
   extension: {
     type: String,
     required: true
+  },
+  base64: {
+    type: String,
+    required: true
   }
 })
 
