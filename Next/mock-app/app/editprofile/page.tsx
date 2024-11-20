@@ -53,13 +53,9 @@ function EditProfile() {
       let imageData = null
       
       if (selectedFile) {
-        const filename = selectedFile.name.split('.')[0]
-        const extension = selectedFile.name.split('.').pop() || ''
         const base64 = await Image2base64(selectedFile)
         
         imageData = {
-          filename,
-          extension,
           base64,
           name: formData.name,
           username: formData.username,
