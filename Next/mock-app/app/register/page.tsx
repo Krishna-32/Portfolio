@@ -1,25 +1,52 @@
-'use client'
+"use client";
 
 import React, { FC, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const RegisterForm: FC = () => {
+  const router = useRouter();
 
-  const [name, setName] = useState<string>('')
-  const [username, setUsername] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const [error, setError] = useState<string>('')
+  const [name, setName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    
-    if(!name || !username || !email || !password) {
-      setError('Please fill in all fields')
-      return
-    }
-  }
+    e.preventDefault();
 
+    if (!name || !username || !email || !password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const responseUserExists = await axios.post("/api/userExists", { email })
+      const { user } = responseUserExists.data
+
+      if (user) {
+        setError("User already exists");
+        return;
+      }
+
+      const response = await axios.post("/api/register", {
+        name,
+        username,
+        email,
+        password,
+      });
+
+      if (response.status === 201) {
+        router.push("/login");
+      } else {
+        setError("Failed to register user");
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+    }
+  }; 
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md max-w-md mx-auto">
@@ -38,7 +65,7 @@ const RegisterForm: FC = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="w-full px-4 py-2 border rounded-md bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-green-400"
-        /> 
+        />
         <input
           type="email"
           placeholder="Email Address"
@@ -53,7 +80,7 @@ const RegisterForm: FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           className="w-full px-4 py-2 border rounded-md bg-gray-100 text-black focus:outline-none focus:ring-2 focus:ring-green-400"
         />
-        
+
         <button
           type="submit"
           className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition"
@@ -65,7 +92,11 @@ const RegisterForm: FC = () => {
           <Link href="/login">Already have an account?</Link>
         </div>
 
-        {error && <p className="bg-red-500 text-white p-2 rounded-md text-center">{error}</p>}
+        {error && (
+          <p className="bg-red-500 text-white p-2 rounded-md text-center">
+            {error}
+          </p>
+        )}
       </form>
     </div>
   );
