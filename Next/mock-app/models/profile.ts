@@ -1,14 +1,6 @@
 import mongoose from 'mongoose'
 
 const profileSchema = new mongoose.Schema({
-  // filename: {
-  //   type: String,
-  //   required: true
-  // },
-  // extension: {
-  //   type: String,
-  //   required: true
-  // },
   base64: {
     type: String,
     required: true

@@ -1,23 +1,21 @@
 
-import NextAuth, { User } from 'next-auth'
+import NextAuth, { User as NextAuthUser } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { findUserByEmail } from './app/data/users'
-
-export const { handlers : {GET, POST}, signIn, signOut, auth } = NextAuth({
-  session: {
-    strategy: 'jwt',
-  },
+import User from '@/models/user'
+import { authConfig } from '@/auth.config'
+export const { handlers : {GET, POST}, auth, signIn, signOut} = NextAuth({
+  ...authConfig,
   providers: [
     CredentialsProvider({
        async authorize(credentials) {
         if (!credentials) return null;
 
         try {
-          const user = findUserByEmail(credentials?.email as string);
+          const user = await User.findOne({ email: credentials?.email });
           if (user) {
             const isMatch = user?.password === credentials?.password; 
             if (isMatch) {
-              return (user as unknown as User);
+              return (user as unknown as NextAuthUser);
             }
             else {
               throw new Error("Invalid password");
