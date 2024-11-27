@@ -22,6 +22,7 @@ const LoginForm: FC = () => {
         console.error(response.error);
       } else {
         router.push("/");
+        console.log("Login successful");
       }
       
     } catch (error) {
