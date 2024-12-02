@@ -23,5 +23,6 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
-};
+    matcher: ["/((?!api/auth|_next/static|favicon.ico).*)"],
+  };
+
