@@ -1,6 +1,6 @@
-import cloudinary from "cloudinary";
-import connectToDB from "@/libs/mongodb";
-import User from "@/models/User";
+import cloudinary from "../../../../libs/cloudinary";
+import connectToDB from "../../../../libs/mongodb";
+import User from "../../../../models/users";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 

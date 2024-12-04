@@ -1,16 +1,31 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { ClipLoader } from "react-spinners";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
 function Register() {
+  const { data: session } = useSession();
+  const router = useRouter();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [loading, setLoading] = useState(false);
+  
+  
+  useEffect(() => {
+    if (session) {
+      router.push("/");
+    }
+  }, [session, router]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -23,10 +38,45 @@ function Register() {
   };
 
   const handleRegister = async () => {
-    console.log(username, email, password, image);
+    setLoading(true);
+    if (!username || !email || !password || !image) {
+      toast.error("Please fill in all fields");
+      setLoading(false);
+      return;
+    }
+
+    try {
+
+      const formData = new FormData();
+      formData.append("username", username);
+      formData.append("email", email);
+      formData.append("password", password);
+      formData.append("image", image);
+
+      await axios.post("http://localhost:3000/api/auth/register", formData,{
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      toast.success("Registration successful!");
+      setLoading(false);
+      setPreviewImage("");
+      setImage("");
+      setUsername("");
+      setEmail("");
+      setPassword("");
+      router.push("/login");
+      
+    } catch (error) {
+      toast.error("Registration failed, please try again");
+      setLoading(false);
+      console.log(error)
+    }
   };
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-full absolute top-0 left-0 pt-16">
+    <div className="flex flex-col items-center justify-center h-screen w-full">
+      <ToastContainer position="bottom-right" theme="dark" />
       <div className="flex flex-col items-center justify-center gap-6 bg-[#171717] p-8 rounded-xl">
 
         <div className="flex flex-col items-center justify-center gap-4">
@@ -109,7 +159,7 @@ function Register() {
             </label>
           </div>
 
-          <button onClick={handleRegister} className="bg-red-500 text-white p-2 rounded-lg w-52 flex items-center justify-center">{loading ? <ClipLoader size={20} color="white" /> : "Register"}</button>
+          <button onClick={handleRegister} className="bg-red-500 text-white p-2 rounded-lg w-48 flex items-center justify-center">{loading ? <ClipLoader size={20} color="white" /> : "Register"}</button>
         </div>
 
         <hr className="w-full" />
