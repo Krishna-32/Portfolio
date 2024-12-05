@@ -1,17 +1,20 @@
-import connectToDB from "@/libs/mongodb"
+import connectToDB from "../../../libs/mongodb"
+import Pin from "../../../models/pins"
+import cloudinary from "../../../libs/cloudinary"
+import { NextResponse } from "next/server"
 
 export const POST = async (req) => {
  connectToDB();
 
- const formData = await req.json();
+ const formData = await req.formData();
 
  const image = formData.get('image');
- const user = formData.get('username');
+ const user = formData.get('user');
  const title = formData.get('title');
  const description = formData.get('description');
  const tags = formData.get('tags');
 
- const tagsArray = tags.split(',').map(tag => { tag.trim() });
+ const tagsArray = tags.split(',').map(tag => tag.trim());
 
  if (!image) {
   return NextResponse.json({ error: "No File Received." }, { status: 400 });

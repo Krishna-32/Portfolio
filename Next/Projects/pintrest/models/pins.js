@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const pinSchema = new mongoose.Schema({
     user: {
-     String,
+     type: String,
      ref: 'User',
      required: true,
     },
