@@ -13,8 +13,8 @@ export async function POST(request) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  if (!image || !username || !email || !password) {
-    return NextResponse.json({ error: "All fields are required" }, { status: 400 });
+  if (!image) {
+    return NextResponse.json({ error: "No File Received." }, { status: 400 });
   }
 
   try {
