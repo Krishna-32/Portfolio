@@ -102,9 +102,9 @@ function UploadPin() {
                 <label htmlFor="title" className="font-bold">Title</label>
                 <input type="text" id="title" className="w-full h-10 bg-[#E9E9E9] text-black rounded-md px-2 focus:outline-none focus:border-none" onChange={(e) => setTitle(e.target.value)} value={title} placeholder="Enter title" />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2">                
                 <label htmlFor="description" className="font-bold">Description</label>
-                <textarea id="description" className="w-full h-10 bg-[#E9E9E9] text-black rounded-md px-2 resize-none h-20 focus:outline-none focus:border-none" onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Enter description" />
+                <textarea id="description" className="w-full bg-[#E9E9E9] text-black rounded-md px-2 resize-none h-20 focus:outline-none focus:border-none" onChange={(e) => setDescription(e.target.value)} value={description} placeholder="Enter description" />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="tags" className="font-bold">Tags</label>

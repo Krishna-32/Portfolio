@@ -5,7 +5,7 @@ import { NextResponse } from "next/server"
 export const GET = async (req, { params }) => {
    try {
     await connectToDB();
-     const { id } = params;
+     const { id } = await params;
      const pin = await Pin.findById(id);
      if (!pin) {
       return NextResponse.json({ success: false, error: "Pin not found" }, { status: 404 });
