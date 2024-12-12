@@ -50,7 +50,7 @@ function Pin() {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
-      {pin && pin?.image?.url ? (
+      {pin && pin?.image?.url && morePins ? (
         <div className="w-full my-16 px-4 flex flex-col items-center justify-center">
           <div className="flex flex-col gap-4">
             <Image
@@ -113,21 +113,22 @@ function Pin() {
               <Send className="absolute right-2 top-1/4 text-red-600"/>
             </div>
 
-            <div className="">
+            
+          </div>
+          <div className="">
               <h3 className="text-2xl mt-8 font-semibold">More Pins</h3>
               <div className="flex space-x-4 overflow-x-auto py-4">
                 {
                   morePins && morePins.map(element => {
                     return(
                       <Link href={`/pins/${element._id}`} key={element._id}>
-                        <Image src={element?.image?.url} alt={element.title} width={200} height={200} className="rounded-xl cursor-pointer "/>
+                        <Image src={element?.image?.url} alt={element.title} width={150} height={150} className="rounded-xl cursor-pointer "/>
                       </Link>
                     )
                   })
                 }
               </div>
             </div>
-          </div>
         </div>
       ) : (
         <div className="flex justify-center items-center h-screen"><ClipLoader color="red" size={250} /></div>

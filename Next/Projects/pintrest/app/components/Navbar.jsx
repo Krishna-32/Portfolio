@@ -13,6 +13,7 @@ function Navbar() {
 
   const handleSearch = () => {
     router.push(`/?search=${query}`);
+    setQuery("");
   };
 
   return (
@@ -38,6 +39,11 @@ function Navbar() {
             className="w-full bg-gray-200 rounded-full p-2 focus:outline-none text-black"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
           ></input>
           <Search
             className="absolute right-2 top-1/2 -translate-y-1/2 text-black cursor-pointer"

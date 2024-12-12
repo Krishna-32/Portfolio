@@ -5,23 +5,31 @@ import Link from "next/link";
 import { ClipLoader } from "react-spinners";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
 
+  const {data: session} = useSession();
   const [pins, setPins] = useState([]);
 
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search");
+
+
   const getPins = async () => {
-    const res = await axios.get(`/api/pins`);
+    const url = search ? `/api/pins?search=${search}` : `/api/pins`;
+    const res = await axios.get(url);
     setPins(res.data.pins);
   }
 
   useEffect(() => {
     getPins();
-  }, []);
+  }, [search, session]);
 
   return (
-    <div className="max-w-full m-4">
-      {!pins || pins.length <= 0 ? (
+    <div className="m-4">
+      {(!pins || pins.length <= 0) && !search ? (
         <div className="flex justify-center items-center h-screen">
           <ClipLoader color="#fff" size={120} />
         </div>
@@ -43,7 +51,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      ) : <div className="flex justify-center items-center h-screen text-2xl font-bold text-gray-500">No Results Found</div>}
+      ) : <div className="flex justify-center items-center h-screen text-2xl font-bold text-gray-500">No Results Found :(</div>}
     </div>
   );
 }
