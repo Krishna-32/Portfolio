@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Send } from "lucide-react";
 import Comment from "../../components/Comment";
+import { ClipLoader } from "react-spinners";
 function Pin() {
   const [pin, setPin] = useState({});
   const [isLiked, setIsLiked] = useState(false);
@@ -16,6 +17,17 @@ function Pin() {
 
   const { id } = useParams();
   const { data: session } = useSession();
+
+  const fetchMorePins = async () => {
+    const res = await axios.get(`/api/pins`);
+    // Get 3 random pins from the response
+    const allPins = res.data.pins;
+    const randomPins = allPins
+      .filter(pin => pin._id !== id) // Exclude current pin
+      .sort(() => 0.5 - Math.random()) // Shuffle array
+      .slice(0, 3); // Take first 3 items
+    setMorePins(randomPins);
+  }
 
   const fetchPin = async () => {
     const res = await axios.get(`/api/pins/${id}`);
@@ -33,12 +45,13 @@ function Pin() {
 
   useEffect(() => {
     fetchPin();
+    fetchMorePins();
   }, [id]);
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       {pin && pin?.image?.url ? (
-        <div className="w-full mt-16 flex flex-col items-center justify-center">
+        <div className="w-full my-16 px-4 flex flex-col items-center justify-center">
           <div className="flex flex-col gap-4">
             <Image
               src={pin?.image?.url}
@@ -62,7 +75,7 @@ function Pin() {
               <Link
                 href={pin?.image?.url}
                 target="_blank"
-                className="bg-red-600 text-black p-2 rounded-md text-white"
+                className="bg-red-600 p-2 rounded-md text-white"
               >
                 Download
               </Link>
@@ -99,10 +112,25 @@ function Pin() {
               />
               <Send className="absolute right-2 top-1/4 text-red-600"/>
             </div>
+
+            <div className="">
+              <h3 className="text-2xl mt-8 font-semibold">More Pins</h3>
+              <div className="flex space-x-4 overflow-x-auto py-4">
+                {
+                  morePins && morePins.map(element => {
+                    return(
+                      <Link href={`/pins/${element._id}`} key={element._id}>
+                        <Image src={element?.image?.url} alt={element.title} width={200} height={200} className="rounded-xl cursor-pointer "/>
+                      </Link>
+                    )
+                  })
+                }
+              </div>
+            </div>
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div className="flex justify-center items-center h-screen"><ClipLoader color="red" size={250} /></div>
       )}
     </div>
   );

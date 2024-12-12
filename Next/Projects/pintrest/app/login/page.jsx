@@ -52,7 +52,7 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-full pt-16">
+    <div className="flex flex-col items-center justify-center h-full w-full pt-16 ">
       <ToastContainer position="bottom-right" theme="dark" />
       <div className="flex flex-col items-center justify-center gap-6 bg-[#171717] p-8 rounded-xl">
         <div className="flex flex-col items-center justify-center gap-4">

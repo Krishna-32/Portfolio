@@ -1,15 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com"],
-    // remotePatterns: [
-    //   {
-    //     protocol: "https",
-    //     hostname: "res.cloudinary.com",
-    //     port: "",
-    //     pathname: "res.cloudinary.com",
-    //   },
-    // ],
+    // domains: ["res.cloudinary.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/dbct5klld/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/a/**",
+      },
+    ],
   },
 };
 

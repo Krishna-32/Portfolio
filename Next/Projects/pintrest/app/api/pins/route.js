@@ -52,3 +52,28 @@ export const POST = async (req) => {
   }, { status: 500 });
  }
 }
+
+export const GET = async (req) => {
+  connectToDB();
+  const search = req.nextUrl.searchParams.get('search');
+
+  let pins;
+
+  if (search) {
+    pins = await Pin.find({
+      $or: [
+        { title: { $regex: search, $options: 'i' } },
+        { description: { $regex: search, $options: 'i' } },
+        { tags: { $regex: search, $options: 'i' } },
+      ],
+    });
+  }
+  else {
+    pins = await Pin.find({});
+  }
+
+  return NextResponse.json({ 
+    success: true,
+    pins,
+  }, { status: 200 });
+}

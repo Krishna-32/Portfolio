@@ -75,7 +75,7 @@ function Register() {
     }
   };
   return (
-    <div className="flex flex-col items-center justify-center h-screen w-full">
+    <div className="flex flex-col items-center justify-center h-full w-full pt-4">
       <ToastContainer position="bottom-right" theme="dark" />
       <div className="flex flex-col items-center justify-center gap-6 bg-[#171717] p-8 rounded-xl">
 

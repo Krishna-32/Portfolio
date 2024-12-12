@@ -64,7 +64,7 @@ function UploadPin() {
       setTags("");
       if (response.status === 201) {
         toast.success(response.data.message);
-        router.push("/profile");
+        router.push("/");
       }
     } catch (error) {
       console.log(error);
