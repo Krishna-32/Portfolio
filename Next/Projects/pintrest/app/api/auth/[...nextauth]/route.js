@@ -22,6 +22,7 @@ const authOPtions = {
       username: { label: "Username", type: "text", placeholder: "Username" },
       password: { label: "Password", type: "password", placeholder: "Password" },
     },
+    
     async authorize(credentials) {
       connectToDB();
 
@@ -34,7 +35,7 @@ const authOPtions = {
       if (!passwordsMatch) throw new Error("Invalid credentials");
 
       return {
-       username: user.username,
+       name: user.username,
        email: user.email,
        image: user.image,
       }

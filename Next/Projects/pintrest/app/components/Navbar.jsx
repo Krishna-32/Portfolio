@@ -13,7 +13,6 @@ function Navbar() {
 
   const handleSearch = () => {
     router.push(`/?search=${query}`);
-    setQuery("");
   };
 
   return (

@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import User from "./users";
+import Comment from "./comments";
 
 const pinSchema = new mongoose.Schema({
     user: {
@@ -40,8 +42,7 @@ const pinSchema = new mongoose.Schema({
       }
      }
     ]
-
-},
+  },
 {timestamps: true}
 );
 

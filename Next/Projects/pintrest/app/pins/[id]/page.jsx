@@ -9,6 +9,9 @@ import Link from "next/link";
 import { Heart, Send } from "lucide-react";
 import Comment from "../../components/Comment";
 import { ClipLoader } from "react-spinners";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Pin() {
   const [pin, setPin] = useState({});
   const [isLiked, setIsLiked] = useState(false);
@@ -23,11 +26,11 @@ function Pin() {
     // Get 3 random pins from the response
     const allPins = res.data.pins;
     const randomPins = allPins
-      .filter(pin => pin._id !== id) // Exclude current pin
+      .filter((pin) => pin._id !== id) // Exclude current pin
       .sort(() => 0.5 - Math.random()) // Shuffle array
       .slice(0, 3); // Take first 3 items
     setMorePins(randomPins);
-  }
+  };
 
   const fetchPin = async () => {
     const res = await axios.get(`/api/pins/${id}`);
@@ -43,6 +46,40 @@ function Pin() {
     }
   };
 
+  const handlePostComment = async () => {
+    if (session && session?.user) {
+      const profileImage = session?.user?.image;
+      const user = session?.user?.name;
+      console.log(session?.user);
+      if (!comment || !profileImage || !user) {
+        toast.error("Please add a comment");
+        return;
+      }
+      try {
+        const formData = new FormData();
+        formData.append("user", user);
+        formData.append("profileImage", profileImage);
+        formData.append("comment", comment);
+
+        const res = await axios.post(`/api/comments/${id}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+
+        if (res.status === 201) {
+          toast.success(res.data.message);
+          fetchPin();
+          setComment("");
+        }
+
+        console.log(pin);
+      } catch (error) {
+        toast.error(error.response.data.error);
+      }
+    }
+  };
+
   useEffect(() => {
     fetchPin();
     fetchMorePins();
@@ -50,6 +87,7 @@ function Pin() {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
+      <ToastContainer position="bottom-right" theme="dark" />
       {pin && pin?.image?.url && morePins ? (
         <div className="w-full my-16 px-4 flex flex-col items-center justify-center">
           <div className="flex flex-col gap-4">
@@ -83,20 +121,17 @@ function Pin() {
 
             <div className="flex flex-col gap-4">
               <h3 className="text-2xl font-bold">
-                {" "}
-                {pin?.comment?.length ? pin.comment.length : 0} Comments
+                {pin?.comments?.length ? pin?.comments?.length : 0} Comments
               </h3>
-              {pin?.comment?.length > 0 ? (
-                pin.comment.map((elements) => {
-                  return (
-                    <Comment
-                      key={elements._id}
-                      user={element.user}
-                      comment={element.comment}
-                      profileImage={element.profileImage}
-                    />
-                  );
-                })
+              {pin?.comments?.length > 0 ? (
+                pin?.comments?.map((element) => (
+                  <Comment
+                    key={element._id}
+                    user={element.user}
+                    comment={element.comment}
+                    profileImage={element.profileImage}
+                  />
+                ))
               ) : (
                 <span>No Comments</span>
               )}
@@ -109,29 +144,42 @@ function Pin() {
                 value={comment}
                 className="bg-gray-100 p-3 rounded-xl w-full focus:outline-red-600 text-black"
                 onChange={(e) => setComment(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handlePostComment();
+                  }
+                }}
               />
-              <Send className="absolute right-2 top-1/4 text-red-600"/>
+              <Send
+                onClick={handlePostComment}
+                className="absolute right-2 top-1/4 text-red-600 cursor-pointer"
+              />
             </div>
-
-            
           </div>
           <div className="">
-              <h3 className="text-2xl mt-8 font-semibold">More Pins</h3>
-              <div className="flex space-x-4 overflow-x-auto py-4">
-                {
-                  morePins && morePins.map(element => {
-                    return(
-                      <Link href={`/pins/${element._id}`} key={element._id}>
-                        <Image src={element?.image?.url} alt={element.title} width={150} height={150} className="rounded-xl cursor-pointer "/>
-                      </Link>
-                    )
-                  })
-                }
-              </div>
+            <h3 className="text-2xl mt-8 font-semibold">More Pins</h3>
+            <div className="flex space-x-4 overflow-x-auto py-4">
+              {morePins &&
+                morePins.map((element) => {
+                  return (
+                    <Link href={`/pins/${element._id}`} key={element._id}>
+                      <Image
+                        src={element?.image?.url}
+                        alt={element.title}
+                        width={150}
+                        height={150}
+                        className="rounded-xl cursor-pointer "
+                      />
+                    </Link>
+                  );
+                })}
             </div>
+          </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center h-screen"><ClipLoader color="red" size={250} /></div>
+        <div className="flex justify-center items-center h-screen">
+          <ClipLoader color="red" size={250} />
+        </div>
       )}
     </div>
   );
