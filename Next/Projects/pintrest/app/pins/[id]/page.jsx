@@ -94,8 +94,7 @@ function Pin() {
     }
 
     else if (res.status === 200) {
-      toast.success(res.data.message);
-      fetchPin();
+        toast.success(res.data.message);
     }
 
     else {
@@ -106,7 +105,7 @@ function Pin() {
   useEffect(() => {
     fetchPin();
     fetchMorePins();
-  }, [id]);
+  }, [id, isLiked]);
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
@@ -128,8 +127,8 @@ function Pin() {
                   onClick={handleLikePin}
                   className={`${
                     isLiked
-                      ? "bg-transparent text-red-600 fill-red-600 hover:text-white hover:fill-none"
-                      : "bg-transparent hover:fill-red-600 hover:text-red-600"
+                      ? "text-red-600 fill-red-600 hover:text-white hover:fill-none"
+                      : "hover:fill-red-600 hover:text-red-600"
                   } cursor-pointer`}
                 />
                 <span className="text-xs">{pin?.likes?.length} Likes</span>

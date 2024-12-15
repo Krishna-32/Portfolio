@@ -19,7 +19,7 @@ function Navbar() {
     <>
     <div className="p-4 flex justify-between items-center">
       <div className="flex gap-4 items-center">
-        <Image src={"/pinterest.png"} alt="logo" width={40} height={40}></Image>
+        <Image src={"/pinterest.png"} className="cursor-pointer" onClick={() => router.push("/")} alt="logo" width={40} height={40}></Image>
 
         <Link className="text-lg" href="/">
           Home
