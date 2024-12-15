@@ -12,6 +12,7 @@ import { ClipLoader } from "react-spinners";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 function Pin() {
   const [pin, setPin] = useState({});
   const [isLiked, setIsLiked] = useState(false);
@@ -80,6 +81,28 @@ function Pin() {
     }
   };
 
+  const handleLikePin = async () => {
+    const res = await axios.post(`/api/like/${id}`,{
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+
+    if (res.status === 201) {
+      toast.success(res.data.message);
+      fetchPin();
+    }
+
+    else if (res.status === 200) {
+      toast.success(res.data.message);
+      fetchPin();
+    }
+
+    else {
+      toast.error("Internal Server Error");
+    }
+  };
+
   useEffect(() => {
     fetchPin();
     fetchMorePins();
@@ -102,6 +125,7 @@ function Pin() {
             <div className="flex justify-between items-center">
               <span className="flex flex-col gap-2">
                 <Heart
+                  onClick={handleLikePin}
                   className={`${
                     isLiked
                       ? "bg-transparent text-red-600 fill-red-600 hover:text-white hover:fill-none"

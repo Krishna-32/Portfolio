@@ -1,15 +1,15 @@
-import connectDB from "../../../../libs/mongodb";
+import connectToDB from "../../../../libs/mongodb";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import Pin from "../../../../models/pins";
 import User from "../../../../models/users";
 import Comment from "../../../../models/comments";
 
-export async function POST(req, { params }) {
+export async function POST(request, { params }) {
  try {
-  connectDB();
+  connectToDB();
 
-  const token = await getToken({ req : req })
+  const token = await getToken({ req : request })
 
   if (!token) {
    return NextResponse.json({ success: false, error: "Unauthorized Access" }, { status: 401 })
