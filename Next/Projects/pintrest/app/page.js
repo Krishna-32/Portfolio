@@ -8,6 +8,8 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   const { data: session } = useSession();
   const [pins, setPins] = useState([]);
