@@ -88,22 +88,22 @@ function About() {
 
       <div ref={secondRef} className="second text-center overflow-visible">
         <span className="uppercase font-seasonb text-whitee text-[4vmax] leading-[40px] lg:leading-[70px]">
-          I'm a Junior lvl
+          I'm an Experienced
           <br />
-          Designer
+          Developer
           <br />
           Ready to work
         </span>
       </div>
       <div className="third flex flex-col items-center justify-center lg:w-2/3 lg:text-[2.5vw] lg:font-extralight gap-10 text-center px-4 text-whitee font-halyard overflow-visible">
         <p>
-          Hey there! I'm Krishna, a passionate design student at Georgian@ilac, set to graduate in 2025. My focus is on creating visually impactful yet beautifully simple designs. Toronto is where I call home, and it's here that I've been honing my skills in graphic design while also diving into the world of React development.
+          Greetings, I&apos;m Krishna, a skilled designer and developer with a passion for creating impactful digital experiences. With extensive experience in modern web development and design principles, I consistently deliver sophisticated solutions that combine technical excellence with refined aesthetics. Based in Toronto, I&apos;ve established myself as a professional who brings both innovation and reliability to every project.
         </p>
         <p>
-          What really drives me is the challenge of blending creative concepts with technical solutions. I love taking complex ideas and transforming them into clean, intuitive designs that resonate with people. It's like solving an intricate puzzle, but with the added thrill of creating something visually stunning.
+          My professional approach combines strategic design thinking with technical proficiency in modern frameworks and technologies. I excel at architecting complex systems into elegant, performant applications that serve real business needs. My methodology emphasizes clean, efficient solutions that seamlessly integrate form and function, resulting in products that exceed client expectations.
         </p>
         <p>
-          Each day, I'm excited to push the boundaries of design. For me, it's not just about aesthetics – it's about crafting experiences that evoke emotion and leave a lasting impression. I'm eager to bring my unique perspective to the table and collaborate on projects that make a real impact. Let's create something extraordinary together!
+          With a proven track record of successful projects, I bring both creative vision and technical expertise to every engagement. I specialize in developing scalable, future-proof solutions that ensure optimal performance and exceptional user experiences. I welcome opportunities to collaborate on challenging projects that require innovative thinking and technical excellence in creating impactful digital solutions.
         </p>
       </div>
     </div>
