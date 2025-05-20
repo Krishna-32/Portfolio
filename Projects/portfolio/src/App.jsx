@@ -7,6 +7,8 @@ import Dot from './components/Dot';
 import About from './modules/About';
 import SvgAnimation from './modules/SvgAnimation';
 import Footer from './modules/Footer';
+import { Analytics } from '@vercel/analytics/react';
+
 function App() {
 
   const locomotiveScroll = new LocomotiveScroll();
@@ -40,6 +42,7 @@ function App() {
       <div className='hidden lg:block fixed inset-0 pointer-events-none z-[9999]'>
         <Dot />
       </div>
+      <Analytics />
     </div>
   )
 }
