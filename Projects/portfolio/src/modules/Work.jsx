@@ -26,8 +26,8 @@ function Work() {
   return (
     <div ref={containerRef} className='mt-[10vmax] mb-[20vmax] lg:mb-[10vmax]'>
         <InnerDiv idx='01' title='Dimension-JS' img='./img/dimension.png' link='https://dimension-js.vercel.app/'/>        
-        <InnerDiv idx='02' title='Pintrest clone' img='./img/pintrest.png' link='https://pintrest-clone-theta.vercel.app/'/>        
-        <InnerDiv idx='03' title='Bonjovi' img='./img/bonjovi.png' link='https://bonjovi-bay.vercel.app/' />
+        <InnerDiv idx='02' title='Bonjovi' img='./img/bonjovi.png' link='https://bonjovi-bay.vercel.app/' />
+        <InnerDiv idx='03' title='Pintrest clone' img='./img/pintrest.png' link='https://pintrest-clone-theta.vercel.app/'/>        
         <InnerDiv idx='04' title='Gucci clone' img='./img/gucci.png' link='https://gucci-clone.vercel.app/' />
         <InnerDiv idx='05' title='Scrapper' img='./img/scrapper.png' link='https://github.com/Krishna-32/Linkedin-Scrapper/tree/main'/>
         
