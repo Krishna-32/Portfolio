@@ -1,9 +1,13 @@
 import React from 'react'
+import { Header, Footer, Main, Info } from './module'
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className='w-full h-screen'>
+      <Header />
+      <Main />
+      <Info />
+      <Footer/>
     </div>
   )
 }
