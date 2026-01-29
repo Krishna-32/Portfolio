@@ -15,10 +15,10 @@ function Info() {
       <img
         src={
           windowWidth > 500
-            ? "/src/images/maskC.png"
+            ? "/images/maskC.png"
             : windowWidth < 721
-            ? "/src/images/maskB.png"
-            : "/src/images/maskA.png"
+            ? "/images/maskB.png"
+            : "/images/maskA.png"
         }
         className="w-full h-auto mask-[linear-gradient(to_top,black_85%,transparent_100%)]"
         alt="img"
@@ -33,7 +33,7 @@ function Info() {
         <div className='flex w-full gap-2 px-2'>
           <div className='w-full bg-white overflow-hidden rounded-lg flex flex-col gap-4 p-2'>
             <img
-              src="/src/images/icon1.png"
+              src="/images/icon1.png"
               className="w-full rounded-[15%] h-auto [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [mask-composite:intersect]"
               alt="icon1"
             />
@@ -56,7 +56,7 @@ function Info() {
 
           <div className='w-full bg-white overflow-hidden rounded-lg flex flex-col gap-4 p-2'>
           <img
-              src="/src/images/icon2.png"
+              src="/images/icon2.png"
               className="w-full rounded-[15%] h-auto [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [mask-composite:intersect]"
               alt="icon1"
             />
@@ -77,7 +77,7 @@ function Info() {
 
           <div className='w-full bg-white overflow-hidden rounded-lg flex flex-col gap-4 p-2'>
           <img
-              src="/src/images/icon3.png"
+              src="/images/icon3.png"
               className="w-full rounded-[15%] h-auto [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent),linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] [mask-composite:intersect]"
               alt="icon1"
             />

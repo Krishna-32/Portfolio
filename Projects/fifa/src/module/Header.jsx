@@ -13,7 +13,7 @@ function Header() {
   return (
     <div className="w-full flex justify-between items-center">
       <img
-        src="/src/images/logo2.png"
+        src="/images/logo2.png"
         className={`${windowWidth > 900 ? "w-[15vw]" : "w-[20vh]"}`}
         alt="logo"
       />

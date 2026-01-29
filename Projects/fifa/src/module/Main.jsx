@@ -14,7 +14,7 @@ function Main() {
   return (
     <div className="relative w-full -mt-10 overflow-hidden">
       <img
-        src="/src/assets/mask2.png"
+        src="/images/mask2.png"
         className="w-full relative opacity-80"
         alt="main"
       />
